@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %} Web Helios {% endblock %}
+{% block hero %}
+<div class="hero-body">
+    <div class="section align-center">
+        <a href="/survey" class="box-wrapper">
+            <div class="box has-background-primary mb-3">
+                <h2 class="title">Create New Task</h2>
+                <p class="subtitle">
+                    Use this if you want to plot your own waypoints in the UI
+                </p>
+            </div>
+        </a>
+          <a href="" class="box-wrapper">
+            <div class="box has-background-info mb-3">
+                <h2 class="title">Upload Existing Task </h2>
+                <p class="subtitle">
+                    Use this if you want to load existing survey in XML format
+                </p>
+            </div>
+        </a>
+        <form id='waypoint' action='upload' method="POST"  enctype="multipart/form-data" >
+          <div style="height:0px;overflow:hidden">
+          <input type="file" id="waypointFile" name="waypointFile" onchange="uploadWaypoint()" accept=".kml, .xml"/>
+          </div>
+        </form>
+          <a href="#" class="box-wrapper" onclick="waypointFile.click();">
+            <div class="box has-background-warning mb-3">
+                <h2 class="title">Use Existing Waypoints</h2>
+                <p class="subtitle">
+                    Create New Task from existing waypoints in KML/XML format
+                </p>
+            </div>
+        </a>
+      <div class="column">
+
+      </div>
+      <div class="column" >
+
+      </div>
+    </div>
+</div>
+<script>
+  function uploadWaypoint() {
+      let file = document.getElementById("waypointFile").files[0];
+      let formdata = new FormData();
+      formdata.append("waypointFile", file);
+
+      var ajax = new XMLHttpRequest();
+      ajax.addEventListener("load", (event) => {
+         window.location.href = "/survey"
+      }, false);
+      ajax.addEventListener("error", (event) => {
+        console.log(event.target)
+        alert("Upload failed. Please try again");
+      }, false);
+      ajax.open("POST", "/waypoint");
+      ajax.send(formdata);
+}
+
+</script>
+{% endblock %}

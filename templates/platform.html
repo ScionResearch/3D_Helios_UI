@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% block title %} Helios UI {% endblock %}
+{% block style %}
+    .hero-body {
+        align-items: flex-start !important;
+    }
+{% endblock %}
+{% block hero %}
+<div class="hero-body">
+	<div class="container">
+        <form method="POST" action="">
+            <div class="container" id="form-content">
+                {% for platform in platforms['document']['platform'] %}
+                <div class="card is-fullwidth">
+                    <header class="card-header">
+                        <p class="card-header-title">{{ platform['@name'] }}</p>
+                        <a class="card-header-icon card-toggle">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </header>
+                    <div class="card-content is-hidden">
+                    <div class="content">
+                        <div class="field">
+                          <label class="label">ID</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@id" placeholder="platform id" value="{{ platform['@id'] }}" required>
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Name</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@name" placeholder="name" value="{{ platform['@name'] }}" required>
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Type</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@type" placeholder="platform type" value="{{ platform['@type'] }}" required>
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Drag</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@drag" placeholder="drag value" value="{{ platform['@drag'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Maximum Engine Force</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@engine_max_force" placeholder="maximum engine force" value="{{ platform['@engine_max_force'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Speedup Magnitude</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@speedup_magnitude" placeholder="speedup magnitude" value="{{ platform['@speedup_magnitude'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Slowdown Magnitude</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@slowdown_magnitude" placeholder="slowdown magnitude" value="{{ platform['@slowdown_magnitude'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Slowdown Distance</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@slowdown_distance" placeholder="slowdown distance" value="{{ platform['@slowdown_distance'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Base Pitch</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@base_pitch_deg" placeholder="base pitch degrees" value="{{ platform['@base_pitch_deg'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Roll Speed</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@roll_speed_deg" placeholder="roll speed degrees" value="{{ platform['@roll_speed_deg'] }}" >
+                          </div>
+                        </div>
+
+
+                        <div class="field">
+                          <label class="label">Pitch Speed</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@pitch_speed_deg" placeholder="pitch speed degrees" value="{{ platform['@pitch_speed_deg'] }}" >
+                          </div>
+                        </div>
+
+
+                        <div class="field">
+                          <label class="label">Yaw Speed</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@yaw_speed_deg" placeholder="yaw speed degrees" value="{{ platform['@yaw_speed_deg'] }}" >
+                          </div>
+                        </div>
+
+
+                        <div class="field">
+                          <label class="label">Roll Offset</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@roll_offset_deg" placeholder="roll offset degrees" value="{{ platform['@roll_offset_deg'] }}" >
+                          </div>
+                        </div>
+
+                        <div class="field">
+                          <label class="label">Pitch Offset</label>
+                          <div class="control">
+                            <input class="input" type="text" name="platform-{{loop.index}}-@pitch_offset_deg" placeholder="pitch offset degrees" value="{{ platform['@pitch_offset_deg'] }}" >
+                          </div>
+                        </div>
+
+
+                        <div class="field">
+                        <label class="label"> Scanner Mount Axis</label>
+                        <div class="control">
+                          X-Axis: <input type="text" name="platform-{{loop.index}}-scannerMount-@x" placeholder="Scanner Mount X-axis" value="{{ platform['scannerMount']['@x'] }}">
+                          Y-Axis: <input type="text" name="platform-{{loop.index}}-scannerMount-@y" placeholder="Scanner Mount Y-axis" value="{{ platform['scannerMount']['@y'] }}">
+                          Z-Axis: <input type="text" name="platform-{{loop.index}}-scannerMount-@z" placeholder="Scanner Mount Z-axis" value="{{ platform['scannerMount']['@z'] }}">
+                          Rotations: <input type="text" name="platform-{{loop.index}}-scannerMount-@rotations" placeholder="Scanner Mount Rotations" value="{{ platform['scannerMount']['@rotations'] }}">
+                        </div>
+                        {% set outer_loop = loop.index %}
+                        <div class="control mt-4">
+                            {% for rot in platform['scannerMount']['rot'] %}
+                                Rotation {{ rot['@axis'] }}-axis: <input type="text" name="platform-{{outer_loop}}-scannerMount-rot-@axis-{{ rot['@axis'] }}-@angle_deg" placeholder="Beam Origin X-axis" value="{{ rot['@angle_deg'] }}">
+                            {% endfor %}
+
+                        </div>
+                        </div>
+
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+        </div>
+        <div class="field is-grouped mt-3">
+            <div class="control">
+                <button id="add-new-platform" class="button is-link is-light" type="button">Add New Platform</button>
+            </div>
+
+            <div class="control">
+                <a href="/platform-download" class="button is-link is-light">Download Platform File</a>
+            </div>
+
+            <div class="control">
+                <input type="submit" class="button is-link" value="Apply Changes">
+            </div>
+        </div>
+        </form>
+	</div>
+</div>
+<script>
+
+window.addEventListener('load', (event) => {
+    let platform_count = {{ platforms['document']['platform'] | length}} + 1
+  document.getElementById('add-new-platform').onclick = function () {
+    let platform_template = `
+    		<header class="card-header">
+				<p class="card-header-title">Platform ${platform_count}</p>
+				<a class="card-header-icon delete-card">
+                    <i class="fa fa-times-circle"></i>
+                </a>
+				<a class="card-header-icon card-toggle">
+					<i class="fa fa-angle-down"></i>
+				</a>
+			</header>
+			<div class="card-content is-hidden">
+				<div class="content">
+                    <div class="field">
+                      <label class="label">ID</label>
+                      <div class="control">
+                        <input class="input" name="platform-${platform_count}-@id" type="text" placeholder="platform id" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Name</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@name" placeholder="name" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Type</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@type" placeholder="platform type" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Drag</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@drag" placeholder="drag value" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Maximum Engine Force</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@engine_max_force" placeholder="maximum engine force" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Speedup Magnitude</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@speedup_magnitude" placeholder="speedup magnitude" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Slowdown Magnitude</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@slowdown_magnitude" placeholder="slowdown magnitude" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Slowdown Distance</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@slowdown_distance" placeholder="slowdown distance" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Base Pitch</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@base_pitch_deg" placeholder="base pitch degrees" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Roll Speed</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@roll_speed_deg" placeholder="roll speed degrees" value="" >
+                      </div>
+                    </div>
+
+
+                    <div class="field">
+                      <label class="label">Pitch Speed</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@pitch_speed_deg" placeholder="pitch speed degrees" value="" >
+                      </div>
+                    </div>
+
+
+                    <div class="field">
+                      <label class="label">Yaw Speed</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@yaw_speed_deg" placeholder="yaw speed degrees" value="" >
+                      </div>
+                    </div>
+
+
+                    <div class="field">
+                      <label class="label">Roll Offset</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@roll_offset_deg" placeholder="roll offset degrees" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Pitch Offset</label>
+                      <div class="control">
+                        <input class="input" type="text" name="platform-${platform_count}-@pitch_offset_deg" placeholder="pitch offset degrees" value="" >
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label"> Scanner Mount Axis</label>
+                        <div class="control">
+                          X-Axis: <input type="text" name="platform-${platform_count}-scannerMount-@x" placeholder="Scanner Mount X-axis" value="">
+                          Y-Axis: <input type="text" name="platform-${platform_count}-scannerMount-@y" placeholder="Scanner Mount Y-axis" value="">
+                          Z-Axis: <input type="text" name="platform-${platform_count}-scannerMount-@z" placeholder="Scanner Mount Z-axis" value="">
+                          Rotations: <input type="text" name="platform-${platform_count}-scannerMount-@rotations" placeholder="Scanner Mount Rotations" value="">
+                        </div>
+
+                        <div class="control mt-4">
+
+                                Rotation x-axis: <input type="text" name="scanner-${platform_count}-scannerMount-rot-@axis-x-@angle_deg" placeholder="Rotation X-axis" value="0">
+                                Rotation y-axis: <input type="text" name="scanner-${platform_count}-scannerMount-rot-@axis-y-@angle_deg" placeholder="Rotation Y-axis" value="0">
+                                Rotation z-axis: <input type="text" name="scanner-${platform_count}-scannerMount-rot-@axis-z-@angle_deg" placeholder="Rotation Z-axis" value="0">
+                        </div>
+                    </div>
+               	</div>
+			</div>
+    `
+    let container = document.getElementById('form-content')
+    let div = document.createElement('div')
+    div.classList.add(...['card', 'is-fullwidth'])
+    div.innerHTML = platform_template
+    div.getElementsByClassName('card-toggle')[0].addEventListener('click', e => {
+        e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden')
+    })
+    div.getElementsByClassName('delete-card')[0].addEventListener('click', e => {
+        e.currentTarget.parentElement.parentElement.remove()
+    })
+    container.appendChild(div)
+    platform_count++
+  }
+})
+</script>
+{% endblock %}

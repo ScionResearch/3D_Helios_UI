@@ -1,0 +1,1013 @@
+{% extends 'base.html' %}
+{% block title %} Helios UI {% endblock %}
+{% block style %}
+    .hero-body {
+        align-items: flex-start !important;
+    }
+    #modal .modal-card-body  {
+        height: 600px !important;
+    }
+{% endblock %}
+{% block hero %}
+<div class="modal" id="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Survey has been saved successfully. Running Helios ...</p>
+      <button class="delete" aria-label="close" onclick="toggleModal('modal')"></button>
+    </header>
+    <section class="modal-card-body">
+      <ul id="logs">
+
+      </ul>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button">Download Output</button>
+        <button class="button" onclick="toggleModal('modal')">Cancel</button>
+    </footer>
+  </div>
+</div>
+<div class="modal" id="modal-scene">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Upload Scene zip file</p>
+      <button class="delete" aria-label="close" onclick="toggleModal('modal-scene')"></button>
+    </header>
+    <section class="modal-card-body">
+        <form id="upload_form" enctype="multipart/form-data" method="post">
+          <input type="file" name="file1" id="file1" onchange="uploadFile()" accept="application/zip"><br>
+          <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+          <h3 id="status"></h3>
+          <p id="loaded_n_total"></p>
+        </form>
+    </section>
+  </div>
+</div>
+<div class="modal" id="modal-scanner">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add New Scanner</p>
+      <button class="delete" aria-label="close" onclick="toggleModal('modal-scanner')"></button>
+    </header>
+    <section class="modal-card-body">
+        <div class="content">
+            <form id="scanner-form">
+            <div class="field">
+              <label class="label">ID</label>
+              <div class="control">
+                <input class="input" name="@id" type="text" placeholder="scanner id" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Pulse Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@pulseFreq_hz" placeholder="Pulse frequency in Hz">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@scanAngle_deg" placeholder="Scan angle in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@scanFreq_hz" placeholder="Scan frequency in Hz">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Per Seconds</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Start</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotateStart_deg" placeholder="Head Rotate Start in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Stop</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotateStop_deg" placeholder="Head Rotate Stop in deg">
+                  </div>
+           </div>
+            <div class="field">
+              <label class="label">Trajectory Time Interval</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
+                  </div>
+           </div>
+
+            <div class="field">
+              <label class="label">Accuracy</label>
+              <div class="control">
+                <input class="input" type="text" name="@accuracy_m" placeholder="accuracy_m">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Beam Divergence</label>
+              <div class="control">
+                <input class="input" type="text" name="@beamDivergence_rad" placeholder="beam divergence in radian">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Deflect Angle</label>
+              <div class="control">
+                <input class="input" type="text" name="@deflectAngle_deg" placeholder="deflect angle in degree">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input" type="text" name="@name" placeholder="scanner name" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Optics</label>
+              <div class="control">
+                <input class="input" type="text" name="@optics" placeholder="optics">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Pulse Frequency</label>
+              <div class="control">
+                <input class="input" type="text" name="@pulseFreqs_Hz" placeholder="pulse frequency in Hz">
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">Pulse Length</label>
+              <div class="control">
+                <input class="input" type="text" name="@pulseLength_ns" placeholder="pulse length in ns">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Minimum Range</label>
+              <div class="control">
+                <input class="input" type="text" name="@rangeMin_m" placeholder="minimum range in meters">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Maximum Scanner Angle</label>
+              <div class="control">
+                <input class="input" type="text" name="@scanAngleMax_deg" placeholder="maximum scanner angle in degrees">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Minimum Scanner Frequency</label>
+              <div class="control">
+                <input class="input" type="text" name="@scanFreqMin_Hz" placeholder="Minimum Scanner frequency in Hz">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Maximum Scanner Frequency</label>
+              <div class="control">
+                <input class="input" type="text" name="@scanFreqMax_Hz" placeholder="Maximum Scanner Frequency in Hz">
+              </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Effective Maximum San Angle</label>
+                <div class="control">
+                    <input class="input" type="text" name="@scanAngleEffectiveMax_deg" placeholder="Effective Maximum San Angle in deg">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Wavelength</label>
+                <div class="control">
+                    <input class="input" type="text" name="@wavelength_nm" placeholder="Wavelength in nm">
+                </div>
+            </div>
+
+            <div class="field">
+              <label class="label"> Head Rotate Axis</label>
+              <div class="control">
+                 X-Axis: <input type="text" name="headRotateAxis-@x" placeholder="Head Rotate X-axis">
+                 Y-Axis: <input type="text" name="headRotateAxis-@y" placeholder="Head Rotate Y-axis">
+                 Z-Axis: <input type="text" name="headRotateAxis-@z" placeholder="Head Rotate Z-axis">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label"> Beam Origin Axis</label>
+                <div class="control mb-3">
+                  X-Axis: <input type="text" name="beamOrigin-@x" placeholder="Beam Origin X-axis">
+                  Y-Axis: <input type="text" name="beamOrigin-@y" placeholder="Beam Origin Y-axis">
+                  Z-Axis: <input type="text" name="beamOrigin-@z" placeholder="Beam Origin Z-axis">
+                </div>
+                <div class="control">
+                    Rotation x-axis: <input type="text" name="beamOrigin-rot-@axis-x-@angle_deg" placeholder="Beam Origin X-axis">
+                    Rotation y-axis: <input type="text" name="beamOrigin-rot-@axis-y-@angle_deg" placeholder="Beam Origin Y-axis">
+                    Rotation z-axis: <input type="text" name="beamOrigin-rot-@axis-z-@angle_deg" placeholder="Beam Origin Z-axis">
+                </div>
+            </div>
+                <input class="button is-primary" id="add-scanner" type="submit" value="Add" />
+            </form>
+        </div>
+    </section>
+  </div>
+</div>
+
+<div class="modal" id="modal-platform">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add New Platform</p>
+      <button class="delete" aria-label="close" onclick="toggleModal('modal-platform')"></button>
+    </header>
+    <section class="modal-card-body">
+        <div class="content">
+          <form id="platform-form">
+           <div class="field">
+              <label class="label">ID</label>
+              <div class="control">
+                <input class="input" name="@id" type="text" placeholder="platform id" value="" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input" type="text" name="@name" placeholder="name" value="" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Type</label>
+              <div class="control">
+                <input class="input" type="text" name="@type" placeholder="platform type" value="" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Drag</label>
+              <div class="control">
+                <input class="input" type="text" name="@drag" placeholder="drag value" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Maximum Engine Force</label>
+              <div class="control">
+                <input class="input" type="text" name="@engine_max_force" placeholder="maximum engine force" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Speedup Magnitude</label>
+              <div class="control">
+                <input class="input" type="text" name="@speedup_magnitude" placeholder="speedup magnitude" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Slowdown Magnitude</label>
+              <div class="control">
+                <input class="input" type="text" name="@slowdown_magnitude" placeholder="slowdown magnitude" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Slowdown Distance</label>
+              <div class="control">
+                <input class="input" type="text" name="@slowdown_distance" placeholder="slowdown distance" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Base Pitch</label>
+              <div class="control">
+                <input class="input" type="text" name="@base_pitch_deg" placeholder="base pitch degrees" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Roll Speed</label>
+              <div class="control">
+                <input class="input" type="text" name="@roll_speed_deg" placeholder="roll speed degrees" value="" >
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">Pitch Speed</label>
+              <div class="control">
+                <input class="input" type="text" name="@pitch_speed_deg" placeholder="pitch speed degrees" value="" >
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">Yaw Speed</label>
+              <div class="control">
+                <input class="input" type="text" name="@yaw_speed_deg" placeholder="yaw speed degrees" value="" >
+              </div>
+            </div>
+
+
+            <div class="field">
+              <label class="label">Roll Offset</label>
+              <div class="control">
+                <input class="input" type="text" name="@roll_offset_deg" placeholder="roll offset degrees" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Pitch Offset</label>
+              <div class="control">
+                <input class="input" type="text" name="@pitch_offset_deg" placeholder="pitch offset degrees" value="" >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label"> Scanner Mount Axis</label>
+                <div class="control">
+                  X-Axis: <input type="text" name="scannerMount-@x" placeholder="Scanner Mount X-axis" value="">
+                  Y-Axis: <input type="text" name="scannerMount-@y" placeholder="Scanner Mount Y-axis" value="">
+                  Z-Axis: <input type="text" name="scannerMount-@z" placeholder="Scanner Mount Z-axis" value="">
+                  Rotations: <input type="text" name="scannerMount-@rotations" placeholder="Scanner Mount Rotations" value="">
+                </div>
+
+                <div class="control mt-4">
+
+                        Rotation x-axis: <input type="text" name="scannerMount-rot-@axis-x-@angle_deg" placeholder="Rotation X-axis" value="0">
+                        Rotation y-axis: <input type="text" name="scannerMount-rot-@axis-y-@angle_deg" placeholder="Rotation Y-axis" value="0">
+                        Rotation z-axis: <input type="text" name="scannerMount-rot-@axis-z-@angle_deg" placeholder="Rotation Z-axis" value="0">
+                </div>
+            </div>
+              <input class="button is-primary" id="add-platform" type="submit" value="Add" />
+            </form>
+        </div>
+    </section>
+  </div>
+</div>
+<div class="hero-body">
+    <div class="container">
+    <div class="columns">
+      <div class="column is-4 has-background-light">
+        <form id="survey-form" method="post" action="">
+        <h1 class="title">Create Survey</h1>
+          <div class="card is-fullwidth">
+            <header class="card-header">
+                <p class="card-header-title">Show/Manage Waypoints ({{message['waypoints']|length}})</p>
+                <a class="card-header-icon card-toggle">
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </header>
+            <div class="card-content is-hidden">
+                <div class="content">
+                  <h3 class="subtitle">Waypoints </h3>
+                    <div id="waypoints">
+                        {% for waypoint in message['waypoints'] %}
+                            <div class="card is-fullwidth mb-3">
+                                <header class="card-header">
+                                    <p class="card-header-title">Waypoint {{loop.index}}</p>
+                                    <a class="card-header-icon delete-card">
+                                        <i class="fa fa-times-circle"></i>
+                                    </a>
+                                    <a class="card-header-icon card-toggle">
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </header>
+                                <div class="card-content is-hidden">
+                                    <div class="content">
+                                <h3 class="subtitle">Platform Setting</h3>
+                                <div class="field">
+                                  <label class="label"></label>
+                                      <div class="control">
+                                        X-axis<input class="input" type="text" name="waypoint-platform-{{loop.index}}-setting-@x" placeholder="x" value="{{waypoint[0]}}">
+                                        Y-axis<input class="input" type="text" name="waypoint-platform-{{loop.index}}-setting-@y" placeholder="y" value="{{waypoint[1]}}">
+                                        Z-axis<input class="input" type="text" name="waypoint-platform-{{loop.index}}-setting-@z" placeholder="z" value="{{waypoint[2]}}">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">On Ground</label>
+                                   <div class="control">
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-platform-{{loop.index}}-setting-@onGround" value="true">
+                                        True
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-platform-{{loop.index}}-setting-@onGround" value="false" checked>
+                                        False
+                                      </label>
+                                   </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Move Per Second</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-platform-{{loop.index}}-setting-@movePerSec_m" placeholder="Move Per Second in meter">
+                                      </div>
+                               </div>
+                    
+                                <h3 class="subtitle">Scanner Setting</h3>
+                                <div class="field">
+                                  <label class="label">ID</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@id" placeholder="ID">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Pulse Frequency</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@pulseFreq_hz" placeholder="Pulse frequency in Hz">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Scan Angle</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@scanAngle_deg" placeholder="Scan angle in deg">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Scan Frequency</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@scanFreq_hz" placeholder="Scan frequency in Hz">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Head Rotate Per Seconds</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Head Rotate Start</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotateStart_deg" placeholder="Head Rotate Start in deg">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Head Rotate Stop</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotateStop_deg" placeholder="Head Rotate Stop in deg">
+                                      </div>
+                               </div>
+                                <div class="field">
+                                  <label class="label">Trajectory Time Interval</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
+                                      </div>
+                               </div>
+                               <div class="field">
+                                  <label class="label">Active</label>
+                                   <div class="control">
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@active" value="true" checked>
+                                        True
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@active" value="false">
+                                        False
+                                      </label>
+                                   </div>
+                               </div>
+                               </div>
+                               </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button type="button" id="add-new-waypoint" class="button is-primary">Add New Waypoint</button>
+                </div>
+            </div>
+          </div>
+            <hr class="navbar-divider has-background-white"/>
+
+          <h3 class="subtitle">Survey Settings</h3>
+          <div class="field">
+              <label class="label">Survey Name</label>
+                  <div class="control">
+                    <input class="input" type="text" name="survey-setting-@name" placeholder="Survey Name" required>
+                    <p class="help is-danger">This field is required</p>
+                  </div>
+           </div>
+           <div class="mb-3">
+           <div class="select float-left mr-4">
+              <select name="survey-setting-@scanner" id="survey-scanner" onchange="handleScannerChange(event)">
+                <option>Select Scanner</option>
+                 {% for scanner in message['scanners']['document']['scanner'] %}
+                <option value="{{scanner['@id']}}">{{scanner['@name']}}</option>
+                  {% endfor %}
+              </select>
+           </div>
+           <button class="button is-primary forced-width" type="button" onclick="toggleModal('modal-scanner')">Add New Scanner</button>
+           </div>
+           <div class="mb-3">
+           <div class="select float-left mr-4">
+              <select name="survey-setting-@platform" id="survey-platform">
+                <option>Select Platform</option>
+                  {% for platform in message['platforms']['document']['platform'] %}
+                <option value="{{platform['@id']}}">{{platform['@name']}}</option>
+                  {% endfor %}
+              </select>
+           </div>
+           <button class="button is-primary forced-width" type="button" onclick="toggleModal('modal-platform')">Add New Platform</button>
+           </div>
+           <div class="mb-3">
+           <div class="select float-left mr-4 mb-3">
+              <select name="survey-setting-@scene" id="survey-scene">
+                <option>Select Scene</option>
+                  {% for scene in message['scenes'] %}
+                <option value="{{scene}}">{{scene}}</option>
+                  {% endfor %}
+              </select>
+           </div>
+           <button class="button is-primary forced-width" type="button" onclick="toggleModal('modal-scene')">Add New Scene</button>
+           </div>
+
+         <!-- <hr class="navbar-divider has-background-white"/>
+        <h3 class="subtitle">Default Scanner Settings</h3>
+           <div class="field">
+              <label class="label">ID</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@id" placeholder="ID">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Pulse Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@pulseFreq_hz" placeholder="Pulse frequency in Hz">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@scanAngle_deg" placeholder="Scan angle in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@scanFreq_hz" placeholder="Scan frequency in Hz">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Per Seconds</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Start</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@headRotateStart_deg" placeholder="Head Rotate Start in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Stop</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@headRotateStop_deg" placeholder="Head Rotate Stop in deg">
+                  </div>
+           </div>
+            <div class="field">
+              <label class="label">Trajectory Time Interval</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Active</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="scanner-setting-@active" value="true" checked>
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="scanner-setting-@active" value="false">
+                    False
+                  </label>
+               </div>
+           </div> -->
+           <hr class="navbar-divider has-background-white"/>
+            <h3 class="subtitle">Full Waveform Settings</h3>
+            <div class="field">
+              <label class="label">Beam Sample Quality</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@beamSampleQuality" placeholder="Beam Sample Quality">
+                  </div>
+            </div>
+            <div class="field">
+              <label class="label">Bin Size</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@binSize_ns" placeholder="Bin Size in ns">
+                  </div>
+            </div>
+            <div class="field">
+              <label class="label">Maximum Full Wave Range</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@maxFullwaveRange_ns" placeholder="Maximum Full Wave Range in ns">
+                  </div>
+            </div>
+            <div class="field">
+              <label class="label">Window Size</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@winSize_ns" placeholder="Window Size in ns">
+                  </div>
+            </div>
+            <hr class="navbar-divider has-background-white"/>
+
+            <div class="field is-grouped mt-3">
+             <div class="control">
+                <input type="submit" class="button is-link" value="Run">
+            </div>
+            <!--<div class="control">
+                <a href="/survey-download" class="button is-link is-light">Download Survey</a>
+            </div>-->
+        </div>
+        </form>
+      </div>
+      <div class="column is-8">
+
+      </div>
+    </div>
+    </div>
+</div>
+<script>
+window.addEventListener('load', (event) => {
+  let waypoint_count = {{message['waypoints']|length + 1}}
+  document.getElementById('add-new-waypoint').onclick = function () {
+    let waypoint_template = `
+            <header class="card-header">
+				<p class="card-header-title">Waypoint ${waypoint_count}</p>
+				<a class="card-header-icon delete-card">
+                    <i class="fa fa-times-circle"></i>
+                </a>
+				<a class="card-header-icon card-toggle">
+					<i class="fa fa-angle-down"></i>
+				</a>
+			</header>
+			<div class="card-content is-hidden">
+			    <div class="content">
+			<h3 class="subtitle">Platform Setting</h3>
+            <div class="field">
+              <label class="label"></label>
+                  <div class="control">
+                    X-axis<input class="input" type="text" name="waypoint-platform-${waypoint_count}-setting-@x" placeholder="x">
+                    Y-axis<input class="input" type="text" name="waypoint-platform-${waypoint_count}-setting-@y" placeholder="y">
+                    Z-axis<input class="input" type="text" name="waypoint-platform-${waypoint_count}-setting-@z" placeholder="z">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">On Ground</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@onGround" value="true">
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@onGround" value="false" checked>
+                    False
+                  </label>
+               </div>
+           </div>
+           <div class="field">
+              <label class="label">Move Per Second</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-platform-${waypoint_count}-setting-@movePerSec_m" placeholder="Move Per Second in meter">
+                  </div>
+           </div>
+
+			<h3 class="subtitle">Scanner Setting</h3>
+            <div class="field">
+              <label class="label">ID</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@id" placeholder="ID" value="${selectedScanner['@id']? selectedScanner['@id']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Pulse Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@pulseFreq_hz" placeholder="Pulse frequency in Hz" value="${selectedScanner['@pulseFreq_hz']? selectedScanner['@pulseFreq_hz']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@scanAngle_deg" placeholder="Scan angle in deg" value="${selectedScanner['@scanAngle_deg']? selectedScanner['@scanAngle_deg']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@scanFreq_hz" placeholder="Scan frequency in Hz" value="${selectedScanner['@scanFreq_hz']? selectedScanner['@scanFreq_hz']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Per Seconds</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg" value="${selectedScanner['@headRotatePerSec_deg']? selectedScanner['@headRotatePerSec_deg']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Start</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotateStart_deg" placeholder="Head Rotate Start in deg" value="${selectedScanner['@headRotateStart_deg']? selectedScanner['@headRotateStart_deg']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Stop</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotateStop_deg" placeholder="Head Rotate Stop in deg" value="${selectedScanner['@headRotateStop_deg']? selectedScanner['@headRotateStop_deg']: '' }">
+                  </div>
+           </div>
+            <div class="field">
+              <label class="label">Trajectory Time Interval</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval" value="${selectedScanner['@trajectoryTimeInterval_s']? selectedScanner['@trajectoryTimeInterval_s']: '' }">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Active</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="waypoint-${waypoint_count}-setting-@active" value="true" checked>
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="waypoint-${waypoint_count}-setting-@active" value="false">
+                    False
+                  </label>
+               </div>
+           </div>
+           </div>
+           </div>
+           `
+let container = document.getElementById('waypoints')
+    let div = document.createElement('div')
+    div.classList.add(...['card', 'is-fullwidth', 'mb-3'])
+    div.innerHTML = waypoint_template
+    div.getElementsByClassName('card-toggle')[0].addEventListener('click', e => {
+        e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden')
+    })
+    div.getElementsByClassName('delete-card')[0].addEventListener('click', e => {
+        e.currentTarget.parentElement.parentElement.remove()
+    })
+    container.appendChild(div)
+    waypoint_count++
+  }
+
+})
+
+function toggleModal(id) {
+  document.getElementById(id).classList.toggle('is-active')
+}
+
+let source = new EventSource("/log");
+	  source.onmessage = function(event) {
+            let log_container = document.getElementById('logs')
+            let li = document.createElement('li')
+            li.innerText = event.data
+            log_container.appendChild(li)
+            li.scrollIntoView()
+      }
+
+window.addEventListener( "load", function () {
+  function sendData() {
+    const XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    const FD = new FormData( _("survey-form") );
+
+    // Define what happens on successful data submission
+    XHR.addEventListener( "load", function(event) {
+      //alert( event.target.responseText );
+      document.getElementById('modal').classList.toggle('is-active')
+    } );
+
+    // Define what happens in case of error
+    XHR.addEventListener( "error", function( event ) {
+      alert( 'Oops! Something went wrong.' );
+    } );
+
+    // Set up our request
+    XHR.open( "POST", "/survey" );
+
+    // The data sent is what the user provided in the form
+    XHR.send( FD );
+  }
+
+  // Access the form element...
+  const form = document.getElementById( "survey-form" );
+
+  // ...and take over its submit event.
+  form.addEventListener( "submit", function ( event ) {
+    event.preventDefault();
+
+    sendData();
+  });
+});
+
+// file upload
+function _(el) {
+  return document.getElementById(el);
+}
+
+function uploadFile() {
+  let file = _("file1").files[0];
+  // alert(file.name+" | "+file.size+" | "+file.type);
+  let formdata = new FormData();
+  formdata.append("file1", file);
+  var ajax = new XMLHttpRequest();
+  ajax.upload.addEventListener("progress", progressHandler, false);
+  ajax.addEventListener("load", completeHandler, false);
+  ajax.addEventListener("error", errorHandler, false);
+  ajax.addEventListener("abort", abortHandler, false);
+  ajax.open("POST", "/scene");
+  ajax.send(formdata);
+}
+
+function progressHandler(event) {
+  _("loaded_n_total").innerHTML = "Uploaded " + event.loaded + " bytes of " + event.total;
+  var percent = (event.loaded / event.total) * 100;
+  _("progressBar").value = Math.round(percent);
+  _("status").innerHTML = Math.round(percent) + "% uploaded... please wait";
+}
+
+function completeHandler(event) {
+  let resp = JSON.parse(event.target.responseText)
+    _("status").innerHTML = resp.message;
+    _("progressBar").value = 0; //wil clear progress bar after successful upload
+    let parentElem = _('survey-scene')
+    parentElem.innerHTML = ''
+    resp.scenes.map(scene => {
+       let opt = document.createElement('option')
+       opt.value = scene
+       opt.text = scene
+       parentElem.appendChild(opt)
+    })
+}
+
+function errorHandler(event) {
+  _("status").innerHTML = "Upload Failed";
+}
+
+function abortHandler(event) {
+  _("status").innerHTML = "Upload Aborted";
+}
+
+function addScanner() {
+    const XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    const FD = new FormData( _("scanner-form") );
+
+    // Define what happens on successful data submission
+    XHR.addEventListener( "load", function(event) {
+        _("add-scanner").disabled = false
+
+        let resp = JSON.parse(event.target.responseText)
+        _("status").innerHTML = resp.message;
+        let parentElem = _('survey-scanner')
+        parentElem.innerHTML = ''
+        resp.scanners.document.scanner.map(scanner => {
+            let opt = document.createElement('option')
+            opt.value = scanner['@id']
+            opt.text = scanner['@name']
+            if(scanner['@id'] === resp.id) { opt.defaultSelected = true }
+            parentElem.appendChild(opt)
+        });
+      let eventChange = new Event('change');
+      parentElem.dispatchEvent(eventChange)
+      toggleModal('modal-scanner')
+    } );
+
+    // Define what happens in case of error
+    XHR.addEventListener( "error", function( event ) {
+     _("add-scanner").disabled = false
+      alert( 'Oops! Something went wrong.' );
+    } );
+
+    // Set up our request
+    XHR.open( "POST", "/scanner-async" );
+
+    // The data sent is what the user provided in the form
+    _("add-scanner").disabled = true
+    XHR.send( FD );
+
+}
+
+function addPlatform() {
+    const XHR = new XMLHttpRequest();
+
+    // Bind the FormData object and the form element
+    const FD = new FormData( _("platform-form") );
+
+    // Define what happens on successful data submission
+    XHR.addEventListener( "load", function(event) {
+        _("add-platform").disabled = false
+
+        let resp = JSON.parse(event.target.responseText)
+        _("status").innerHTML = resp.message;
+        let parentElem = _('survey-platform')
+        parentElem.innerHTML = ''
+        resp.platforms.document.platform.map(platform => {
+            let opt = document.createElement('option')
+            opt.value = platform['@id']
+            opt.text = platform['@name']
+            if(platform['@id'] === resp.id) { opt.defaultSelected = true }
+            parentElem.appendChild(opt)
+        })
+      toggleModal('modal-platform')
+    } );
+
+    // Define what happens in case of error
+    XHR.addEventListener( "error", function( event ) {
+     _("add-platform").disabled = false
+      alert( 'Oops! Something went wrong.' );
+    } );
+
+    // Set up our request
+    XHR.open( "POST", "/platform-async" );
+
+    // The data sent is what the user provided in the form
+    _("add-platform").disabled = true
+    XHR.send( FD );
+
+}
+
+window.addEventListener( "load", function () {
+    _("scanner-form").addEventListener( "submit", function ( event ) {
+    event.preventDefault();
+
+    addScanner();
+  });
+
+  _("platform-form").addEventListener( "submit", function ( event ) {
+    event.preventDefault();
+
+    addPlatform();
+  });
+
+  // Fetch scanners asynchronously
+  loadScanners()
+
+})
+
+let scanners = []
+let selectedScanner = {}
+
+function loadScanners() {
+  const XHR = new XMLHttpRequest();
+   XHR.addEventListener( "load", function(event) {
+       scanners = JSON.parse(event.target.responseText).scanners.document.scanner
+   });
+
+   XHR.addEventListener( "error", function(event) {
+       console.log(event.target)
+   });
+
+       // Set up our request
+    XHR.open( "GET", "/scanner-async" );
+
+    XHR.send();
+}
+
+function handleScannerChange(event) {
+    const scannerID = event.target.value
+    selectedScanner = scanners.filter(item => item['@id'] === scannerID)[0]
+    document.querySelectorAll('input[name$="setting-@id"]').forEach((item) => {
+        item.value = selectedScanner['@id']? selectedScanner['@id']: null
+    })
+    document.querySelectorAll('input[name$="setting-@pulseFreq_hz"]').forEach((item) => {
+        item.value = selectedScanner['@pulseFreq_hz']? selectedScanner['@pulseFreq_hz']: null
+    })
+    document.querySelectorAll('input[name$="setting-@scanAngle_deg"]').forEach((item) => {
+        item.value = selectedScanner['@scanAngle_deg']? selectedScanner['@scanAngle_deg']: null
+    })
+    document.querySelectorAll('input[name$="setting-@scanFreq_hz"]').forEach((item) => {
+        item.value = selectedScanner['@scanFreq_hz']? selectedScanner['@scanFreq_hz']: null
+    })
+    document.querySelectorAll('input[name$="setting-@headRotatePerSec_deg"]').forEach((item) => {
+        item.value = selectedScanner['@headRotatePerSec_deg']? selectedScanner['@headRotatePerSec_deg']: null
+    })
+    document.querySelectorAll('input[name$="setting-@headRotateStart_deg"]').forEach((item) => {
+        item.value = selectedScanner['@headRotateStart_deg']? selectedScanner['@headRotateStart_deg']: null
+    })
+    document.querySelectorAll('input[name$="setting-@headRotateStop_deg"]').forEach((item) => {
+        item.value = selectedScanner['@headRotateStop_deg']? selectedScanner['@headRotateStop_deg']: null
+    })
+    document.querySelectorAll('input[name$="setting-@trajectoryTimeInterval_s"]').forEach((item) => {
+        item.value = selectedScanner['@trajectoryTimeInterval_s']? selectedScanner['@trajectoryTimeInterval_s']: null
+    })
+}
+
+
+
+</script>
+{% endblock %}

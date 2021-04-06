@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %} {%  endblock %} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        {% block style %} {% endblock %}
+    </style>
+  </head>
+  <body>
+  <section class="hero is-fullheight">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a href="/" class="navbar-item">
+                <span class="title helios-logo">Web-HELIOS++</span>
+              </a>
+              <span class="navbar-burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+              {% if request.path != '/' %}
+            <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="/survey" class="navbar-item {{ 'is-active' if request.path == '/survey' else '' }}">
+                      Survey
+                    </a>
+                    <a href="/scanner" class="navbar-item {{ 'is-active' if request.path == '/scanner' else '' }}">
+                      Scanner
+                    </a>
+                   <!-- <a href="/scene" class="navbar-item {{ 'is-active' if request.path == '/scene' else '' }}">
+                      Scene
+                    </a>-->
+                    <a href="/platform" class="navbar-item {{ 'is-active' if request.path == '/platform' else '' }}">
+                      Platform
+                    </a>
+                </div>
+            </div>
+              {% endif %}
+          </div>
+        </nav>
+      </div>
+      {% block hero %} {% endblock %}
+  </section>
+  <script>
+     function bindCardToggle() {
+        let cardToggles = document.getElementsByClassName('card-toggle');
+        for (let i = 0; i < cardToggles.length; i++) {
+            cardToggles[i].addEventListener('click', e => {
+              e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+            });
+        }
+     }
+
+     document.addEventListener('DOMContentLoaded', function() {
+            bindCardToggle()
+     })
+
+
+  </script>
+  </body>
+</html>

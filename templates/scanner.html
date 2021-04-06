@@ -1,0 +1,414 @@
+{% extends 'base.html' %}
+{% block title %} Helios UI {% endblock %}
+{% block style %}
+    .hero-body {
+        align-items: flex-start !important;
+    }
+{% endblock %}
+{% block hero %}
+<div class="hero-body">
+	<div class="container">
+        <form method="POST" action="">
+            <div class="container" id="form-content">
+                {% for scanner in scanners['document']['scanner'] %}
+                <div class="card is-fullwidth">
+                    <header class="card-header">
+                        <p class="card-header-title">{{ scanner['@name'] }}</p>
+                        <a class="card-header-icon card-toggle">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </header>
+                    <div class="card-content is-hidden">
+                        <div class="content">
+                            <div class="field">
+                              <label class="label">ID</label>
+                              <div class="control">
+                                <input class="input" name="scanner-{{loop.index}}-@id" type="text" placeholder="scanner id" value="{{ scanner['@id'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Pulse Frequency</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@pulseFreq_hz" placeholder="Pulse frequency in Hz" value="{{ scanner['@pulseFreq_hz'] }}">
+                                  </div>
+                           </div>
+                           <div class="field">
+                              <label class="label">Scan Angle</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@scanAngle_deg" placeholder="Scan angle in deg" value="{{ scanner['@scanAngle_deg'] }}">
+                                  </div>
+                           </div>
+                           <div class="field">
+                              <label class="label">Scan Frequency</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreq_hz" placeholder="Scan frequency in Hz" value="{{ scanner['@scanFreq_hz'] }}">
+                                  </div>
+                           </div>
+                           <div class="field">
+                              <label class="label">Head Rotate Per Seconds</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg" value="{{ scanner['@headRotatePerSec_deg'] }}">
+                                  </div>
+                           </div>
+                           <div class="field">
+                              <label class="label">Head Rotate Start</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@headRotateStart_deg" placeholder="Head Rotate Start in deg" value="{{ scanner['@headRotateStart_deg'] }}">
+                                  </div>
+                           </div>
+                           <div class="field">
+                              <label class="label">Head Rotate Stop</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@headRotateStop_deg" placeholder="Head Rotate Stop in deg" value="{{ scanner['@headRotateStop_deg'] }}">
+                                  </div>
+                           </div>
+                            <div class="field">
+                              <label class="label">Trajectory Time Interval</label>
+                                  <div class="control">
+                                    <input class="input" type="text" name="scanner-{{loop.index}}-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval" value="{{ scanner['@trajectoryTimeInterval_s'] }}">
+                                  </div>
+                           </div>
+
+                            <div class="field">
+                              <label class="label">Accuracy</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@accuracy_m" placeholder="accuracy_m" value="{{ scanner['@accuracy_m'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Beam Divergence</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@beamDivergence_rad" placeholder="beam divergence in radian" value="{{ scanner['@beamDivergence_rad'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Deflect Angle</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@deflectAngle_deg" placeholder="deflect angle in degree" value="{{ scanner['@deflectAngle_deg'] }}">
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Name</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@name" placeholder="scanner name" value="{{ scanner['@name'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Optics</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@optics" placeholder="optics" value="{{ scanner['@optics'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Pulse Frequency</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@pulseFreqs_Hz" placeholder="pulse frequency in Hz" value="{{ scanner['@pulseFreqs_Hz'] }}" required>
+                              </div>
+                            </div>
+
+
+                            <div class="field">
+                              <label class="label">Pulse Length</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@pulseLength_ns" placeholder="pulse length in ns" value="{{ scanner['@pulseLength_ns'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Minimum Range</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@rangeMin_m" placeholder="minimum range in meters" value="{{ scanner['@rangeMin_m'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Maximum Scanner Angle</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanAngleMax_deg" placeholder="maximum scanner angle in degrees" value="{{ scanner['@scanAngleMax_deg'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Minimum Scanner Frequency</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreqMin_Hz" placeholder="Minimum Scanner frequency in Hz" value="{{ scanner['@scanFreqMin_Hz'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Maximum Scanner Frequency</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreqMax_Hz" placeholder="Maximum Scanner Frequency in Hz" value="{{ scanner['@scanFreqMax_Hz'] }}" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Effective Maximum San Angle</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanAngleEffectiveMax_deg" placeholder="Effective Maximum San Angle in deg" value="{{ scanner['@scanAngleEffectiveMax_deg'] }}">
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Wavelength</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@wavelength_nm" placeholder="Wavelength in nm" value="{{ scanner['@wavelength_nm'] }}">
+                              </div>
+                            </div>
+
+                            {% if 'headRotateAxis' in scanner %}
+                            <div class="field">
+                              <label class="label"> Head Rotate Axis</label>
+                              <div class="control">
+                                 X-Axis: <input type="text" name="scanner-{{loop.index}}-headRotateAxis-@x" placeholder="Head Rotate X-axis" value="{{ scanner['headRotateAxis']['@x'] }}">
+                                 Y-Axis: <input type="text" name="scanner-{{loop.index}}-headRotateAxis-@y" placeholder="Head Rotate Y-axis" value="{{ scanner['headRotateAxis']['@y'] }}">
+                                 .Z-Axis: <input type="text" name="scanner-{{loop.index}}-headRotateAxis-@z" placeholder="Head Rotate Z-axis" value="{{ scanner['headRotateAxis']['@z'] }}">
+                              </div>
+                            </div>
+                            {% endif %}
+
+                            {% if 'beamOrigin' in scanner %}
+                            <div class="field">
+                              <label class="label"> Beam Origin Axis</label>
+                                <div class="control mb-3">
+                                  X-Axis: <input type="text" name="scanner-{{loop.index}}-beamOrigin-@x" placeholder="Beam Origin X-axis" value="{{ scanner['beamOrigin']['@x'] }}">
+                                  Y-Axis: <input type="text" name="scanner-{{loop.index}}-beamOrigin-@y" placeholder="Beam Origin Y-axis" value="{{ scanner['beamOrigin']['@y'] }}">
+                                  Z-Axis: <input type="text" name="scanner-{{loop.index}}-beamOrigin-@z" placeholder="Beam Origin Z-axis" value="{{ scanner['beamOrigin']['@z'] }}">
+                                </div>
+                                {% set outer_loop = loop.index %}
+                                <div class="control">
+                                    {% for rot in scanner['beamOrigin']['rot'] %}
+                                        Rotation {{ rot['@axis'] }}-axis: <input type="text" name="scanner-{{outer_loop}}-beamOrigin-rot-@axis-{{ rot['@axis'] }}-@angle_deg" placeholder="Beam Origin X-axis" value="{{ rot['@angle_deg'] }}">
+                                    {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+				</div>
+			</div>
+		</div>
+        {% endfor %}
+        </div>
+        <div class="field is-grouped mt-3">
+            <div class="control">
+                <button id="add-new-scanner" class="button is-link is-light" type="button">Add New Scanner</button>
+            </div>
+
+            <div class="control">
+                <a href="/scanner-download" class="button is-link is-light">Download Scanner File</a>
+            </div>
+
+            <div class="control">
+                <input type="submit" class="button is-link" value="Apply Changes">
+            </div>
+        </div>
+        </form>
+	</div>
+</div>
+<script>
+window.addEventListener('load', (event) => {
+    let scanner_count = {{ scanners['document']['scanner'] | length}} + 1
+  document.getElementById('add-new-scanner').onclick = function () {
+    let scanner_template = `
+    		<header class="card-header">
+				<p class="card-header-title">Scanner ${scanner_count}</p>
+				<a class="card-header-icon delete-card">
+                    <i class="fa fa-times-circle"></i>
+                </a>
+				<a class="card-header-icon card-toggle">
+					<i class="fa fa-angle-down"></i>
+				</a>
+			</header>
+			<div class="card-content is-hidden">
+				<div class="content">
+                    <div class="field">
+                      <label class="label">ID</label>
+                      <div class="control">
+                        <input class="input" name="scanner-${scanner_count}-@id" type="text" placeholder="scanner id" value="" required>
+                      </div>
+                    </div>
+
+            <div class="field">
+              <label class="label">Pulse Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@pulseFreq_hz" placeholder="Pulse frequency in Hz">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@scanAngle_deg" placeholder="Scan angle in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Scan Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@scanFreq_hz" placeholder="Scan frequency in Hz">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Per Seconds</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Start</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@headRotateStart_deg" placeholder="Head Rotate Start in deg">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Stop</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@headRotateStop_deg" placeholder="Head Rotate Stop in deg">
+                  </div>
+           </div>
+            <div class="field">
+              <label class="label">Trajectory Time Interval</label>
+                  <div class="control">
+                    <input class="input" type="text" name="scanner-${scanner_count}-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
+                  </div>
+           </div>
+
+
+                    <div class="field">
+                      <label class="label">Accuracy</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@accuracy_m" placeholder="accuracy_m" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Beam Divergence</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@beamDivergence_rad" placeholder="beam divergence in radian" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Deflect Angle</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@deflectAngle_deg" placeholder="deflect angle in degree" value="">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Name</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@name" placeholder="scanner name" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Optics</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@optics" placeholder="optics" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Pulse Frequency</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@pulseFreqs_Hz" placeholder="pulse frequency in Hz" value="" required>
+                      </div>
+                    </div>
+
+
+                    <div class="field">
+                      <label class="label">Pulse Length</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@pulseLength_ns" placeholder="pulse length in ns" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Minimum Range</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@rangeMin_m" placeholder="minimum range in meters" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Maximum Scanner Angle</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@scanAngleMax_deg" placeholder="maximum scanner angle in degrees" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Minimum Scanner Frequency</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@scanFreqMin_Hz" placeholder="Minimum Scanner frequency in Hz" value="" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Maximum Scanner Frequency</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@scanFreqMax_Hz" placeholder="Maximum Scanner Frequency in Hz" value="" required>
+                      </div>
+                    </div>
+
+
+                    <div class="field">
+                              <label class="label">Effective Maximum San Angle</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-${scanner_count}-@scanAngleEffectiveMax_deg" placeholder="Effective Maximum San Angle in deg" value="">
+                              </div>
+                    </div>
+
+                    <div class="field">
+                              <label class="label">Wavelength</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-${scanner_count}-@wavelength_nm" placeholder="Wavelength in nm" value="">
+                              </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label"> Head Rotate Axis</label>
+                      <div class="control">
+                         X-Axis: <input type="text" name="scanner-${scanner_count}-headRotateAxis-@x" placeholder="Head Rotate X-axis" value="0">
+                         Y-Axis: <input type="text" name="scanner-${scanner_count}-headRotateAxis-@y" placeholder="Head Rotate Y-axis" value="0">
+                         .Z-Axis: <input type="text" name="scanner-${scanner_count}-headRotateAxis-@z" placeholder="Head Rotate Z-axis" value="0">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label"> Beam Origin Axis</label>
+                        <div class="control mb-3">
+                          X-Axis: <input type="text" name="scanner-${scanner_count}-beamOrigin-@x" placeholder="Beam Origin X-axis" value="0">
+                          Y-Axis: <input type="text" name="scanner-${scanner_count}-beamOrigin-@y" placeholder="Beam Origin Y-axis" value="0">
+                          Z-Axis: <input type="text" name="scanner-${scanner_count}-beamOrigin-@z" placeholder="Beam Origin Z-axis" value="0">
+                        </div>
+
+                        <div class="control">
+                           Rotation x-axis: <input type="text" name="scanner-${scanner_count}-beamOrigin-rot-@axis-x-@angle_deg" placeholder="Beam Origin X-axis" value="0">
+                           Rotation y-axis: <input type="text" name="scanner-${scanner_count}-beamOrigin-rot-@axis-y-@angle_deg" placeholder="Beam Origin Y-axis" value="0">
+                           Rotation z-axis: <input type="text" name="scanner-${scanner_count}-beamOrigin-rot-@axis-z-@angle_deg" placeholder="Beam Origin Z-axis" value="0">
+                        </div>
+                    </div>
+               	</div>
+			</div>
+    `
+    let container = document.getElementById('form-content')
+    let div = document.createElement('div')
+    div.classList.add(...['card', 'is-fullwidth'])
+    div.innerHTML = scanner_template
+    div.getElementsByClassName('card-toggle')[0].addEventListener('click', e => {
+        e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden')
+    })
+    div.getElementsByClassName('delete-card')[0].addEventListener('click', e => {
+        e.currentTarget.parentElement.parentElement.remove()
+    })
+    container.appendChild(div)
+    scanner_count++
+  }
+})
+</script>
+{% endblock %}
