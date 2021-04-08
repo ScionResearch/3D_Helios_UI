@@ -26,7 +26,7 @@ Zip data and upload to web-helios++
 src
 |
 
-|--data
+ |--data
 
      |--screens
 
