@@ -31,3 +31,13 @@ src
 
 ```
 
+# Running 3D_Helios_UI Using Docker
+
+In the directory that contain the Dockerfile, run the following code
+ 
+```
+docker build -t 3dhelios .
+docker run --rm -it -p 5000:5000 3dhelios
+```
+
+Open a web browser and run: localhost:5000
