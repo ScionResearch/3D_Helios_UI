@@ -1,10 +1,11 @@
 import subprocess
 import pathlib
 import time
-import zipfile
+import zipfile, io
+import shutil
 from collections import OrderedDict
 
-from flask import Flask, render_template, request, redirect, flash, send_file, Response, jsonify
+from flask import Flask, render_template, request, redirect, flash, send_file, Response, jsonify, make_response
 from werkzeug.utils import secure_filename
 from pygtail import Pygtail
 
@@ -47,7 +48,7 @@ def survey():
 
 
 def run(survey_file):
-    print(survey_file)
+    kill_helios()
     pathlib.Path(HELIOS_LOG_FILE).unlink(missing_ok=True)
     pathlib.Path(f'{HELIOS_LOG_FILE}.offset').unlink(missing_ok=True)
     logfile = open(HELIOS_LOG_FILE, 'w')
@@ -55,12 +56,33 @@ def run(survey_file):
     subprocess.Popen(command, shell=True, stdout=logfile, stderr=logfile)
 
 
+@app.route('/kill-helios')
+def kill_helios():
+    try:
+        pids = subprocess.check_output(['pidof', 'run/helios'])
+        pids = pids.decode().split()
+        print(pids)
+        for pid in pids:
+            subprocess.run(['kill', '-9', pid])
+    except subprocess.CalledProcessError:
+        print('No process found')
+        pass
+    return Response('')
+
+
+@app.route('/initial-logs')
+def get_initial_logs():
+    with open(HELIOS_LOG_FILE) as fd:
+        content = fd.read()
+    return Response(content)
+
+
 @app.route('/log')
 def progress_log():
     def generate():
-        for line in Pygtail(HELIOS_LOG_FILE, every_n=1):
+        for line in Pygtail(HELIOS_LOG_FILE):
             yield "data:" + str(line) + "\n\n"
-            time.sleep(1)
+            time.sleep(0.2)
     return Response(generate(), mimetype='text/event-stream')
 
 
@@ -160,5 +182,15 @@ def waypoint():
         return Response('Upload was successful')
 
 
+@app.route('/download_helios_output/<survey_name>')
+def download_helios_output(survey_name):
+    dir_name = f'{HELIOS_OUTPUT}{os.sep}{survey_name}'
+    shutil.make_archive(survey_name, 'zip', root_dir=HELIOS_BASE_DIR, base_dir=dir_name)
+    return send_file(f'{survey_name}.zip', mimetype='application/zip', as_attachment=True)
+
+
 if __name__ == '__main__':
-    app.run(host="localhost", port=5000, debug=1)
+    host = "localhost"
+    if os.environ.get('ENV') == 'PROD':
+        host = "0.0.0.0"
+    app.run(host=host, port=5000, debug=1)

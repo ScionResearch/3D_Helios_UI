@@ -8,3 +8,4 @@ HELIOS_SCENE_DIR = f'{HELIOS_DATA_DIR}{os.sep}scenes{os.sep}'
 HELIOS_LOG_FILE = f'{HELIOS_BASE_DIR}{os.sep}helios-run.log'
 HELIOS_BIN = f'{HELIOS_BASE_DIR}{os.sep}run{os.sep}helios'
 HELIOS_WAYPOINT_FILE = f'{HELIOS_DATA_DIR}{os.sep}waypoint.xml'
+HELIOS_OUTPUT = f"{HELIOS_BASE_DIR}{os.sep}output{os.sep}Survey Playback"

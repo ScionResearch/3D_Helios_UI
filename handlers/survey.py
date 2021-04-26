@@ -22,8 +22,7 @@ WAYPOINT_PLATFORM_SETTINGS_FIELDS = ['waypoint-platform-{}-setting-@x',
                                      'waypoint-platform-{}-setting-@z',
                                      'waypoint-platform-{}-setting-@onGround',
                                      'waypoint-platform-{}-setting-@movePerSec_m']
-WAYPOINT_SCANNER_SETTINGS_FIELDS = ['waypoint-{}-setting-@id',
-                                    'waypoint-{}-setting-@pulseFreq_hz',
+WAYPOINT_SCANNER_SETTINGS_FIELDS = ['waypoint-{}-setting-@pulseFreq_hz',
                                     'waypoint-{}-setting-@scanAngle_deg',
                                     'waypoint-{}-setting-@scanFreq_hz',
                                     'waypoint-{}-setting-@headRotatePerSec_deg',
@@ -66,7 +65,7 @@ def save_survey(form):
 
 
 def parse_form(form):
-    #scanner_settings = OrderedDict()
+    # scanner_settings = OrderedDict()
     survey_settings = OrderedDict()
     fwf_settings = OrderedDict()
     legs = list()

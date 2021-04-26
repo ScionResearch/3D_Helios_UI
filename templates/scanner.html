@@ -28,25 +28,25 @@
                             </div>
 
                             <div class="field">
-                              <label class="label">Pulse Frequency</label>
+                              <label class="label">Default Pulse Frequency</label>
                                   <div class="control">
                                     <input class="input" type="text" name="scanner-{{loop.index}}-@pulseFreq_hz" placeholder="Pulse frequency in Hz" value="{{ scanner['@pulseFreq_hz'] }}">
                                   </div>
                            </div>
                            <div class="field">
-                              <label class="label">Scan Angle</label>
+                              <label class="label">Default Scan Angle</label>
                                   <div class="control">
                                     <input class="input" type="text" name="scanner-{{loop.index}}-@scanAngle_deg" placeholder="Scan angle in deg" value="{{ scanner['@scanAngle_deg'] }}">
                                   </div>
                            </div>
                            <div class="field">
-                              <label class="label">Scan Frequency</label>
+                              <label class="label">Default Scan Frequency</label>
                                   <div class="control">
                                     <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreq_hz" placeholder="Scan frequency in Hz" value="{{ scanner['@scanFreq_hz'] }}">
                                   </div>
                            </div>
                            <div class="field">
-                              <label class="label">Head Rotate Per Seconds</label>
+                              <label class="label">Default Head Rotate Per Seconds</label>
                                   <div class="control">
                                     <input class="input" type="text" name="scanner-{{loop.index}}-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg" value="{{ scanner['@headRotatePerSec_deg'] }}">
                                   </div>
@@ -64,7 +64,7 @@
                                   </div>
                            </div>
                             <div class="field">
-                              <label class="label">Trajectory Time Interval</label>
+                              <label class="label">Default Trajectory Time Interval</label>
                                   <div class="control">
                                     <input class="input" type="text" name="scanner-{{loop.index}}-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval" value="{{ scanner['@trajectoryTimeInterval_s'] }}">
                                   </div>
@@ -73,16 +73,24 @@
                             <div class="field">
                               <label class="label">Accuracy</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@accuracy_m" placeholder="accuracy_m" value="{{ scanner['@accuracy_m'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@accuracy_m" placeholder="accuracy_m" value="{{ scanner['@accuracy_m'] }}">
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Beam Divergence</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@beamDivergence_rad" placeholder="beam divergence in radian" value="{{ scanner['@beamDivergence_rad'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@beamDivergence_rad" placeholder="beam divergence in radian" value="{{ scanner['@beamDivergence_rad'] }}" >
                               </div>
                             </div>
+
+                            <div class="field">
+                              <label class="label">Maximum Head Rotate</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@headRotatePerSecMax_deg" placeholder="maximum head rotate per second in degree" value="{{ scanner['@headRotatePerSecMax_deg'] }}">
+                              </div>
+                            </div>
+
 
                             <div class="field">
                               <label class="label">Deflect Angle</label>
@@ -94,21 +102,21 @@
                             <div class="field">
                               <label class="label">Name</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@name" placeholder="scanner name" value="{{ scanner['@name'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@name" placeholder="scanner name" value="{{ scanner['@name'] }}" >
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Optics</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@optics" placeholder="optics" value="{{ scanner['@optics'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@optics" placeholder="optics" value="{{ scanner['@optics'] }}" >
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Pulse Frequency</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@pulseFreqs_Hz" placeholder="pulse frequency in Hz" value="{{ scanner['@pulseFreqs_Hz'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@pulseFreqs_Hz" placeholder="pulse frequency in Hz" value="{{ scanner['@pulseFreqs_Hz'] }}" >
                               </div>
                             </div>
 
@@ -116,35 +124,35 @@
                             <div class="field">
                               <label class="label">Pulse Length</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@pulseLength_ns" placeholder="pulse length in ns" value="{{ scanner['@pulseLength_ns'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@pulseLength_ns" placeholder="pulse length in ns" value="{{ scanner['@pulseLength_ns'] }}" >
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Minimum Range</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@rangeMin_m" placeholder="minimum range in meters" value="{{ scanner['@rangeMin_m'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@rangeMin_m" placeholder="minimum range in meters" value="{{ scanner['@rangeMin_m'] }}" >
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Maximum Scanner Angle</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanAngleMax_deg" placeholder="maximum scanner angle in degrees" value="{{ scanner['@scanAngleMax_deg'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanAngleMax_deg" placeholder="maximum scanner angle in degrees" value="{{ scanner['@scanAngleMax_deg'] }}" >
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Minimum Scanner Frequency</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreqMin_Hz" placeholder="Minimum Scanner frequency in Hz" value="{{ scanner['@scanFreqMin_Hz'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreqMin_Hz" placeholder="Minimum Scanner frequency in Hz" value="{{ scanner['@scanFreqMin_Hz'] }}" >
                               </div>
                             </div>
 
                             <div class="field">
                               <label class="label">Maximum Scanner Frequency</label>
                               <div class="control">
-                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreqMax_Hz" placeholder="Maximum Scanner Frequency in Hz" value="{{ scanner['@scanFreqMax_Hz'] }}" required>
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@scanFreqMax_Hz" placeholder="Maximum Scanner Frequency in Hz" value="{{ scanner['@scanFreqMax_Hz'] }}" >
                               </div>
                             </div>
 
@@ -159,6 +167,13 @@
                               <label class="label">Wavelength</label>
                               <div class="control">
                                 <input class="input" type="text" name="scanner-{{loop.index}}-@wavelength_nm" placeholder="Wavelength in nm" value="{{ scanner['@wavelength_nm'] }}">
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Beam Sample Quality</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@beamSampleQuality" placeholder="Beam Sample Quality" value="{{ scanner['@beamSampleQuality'] }}">
                               </div>
                             </div>
 
@@ -234,25 +249,25 @@ window.addEventListener('load', (event) => {
                     </div>
 
             <div class="field">
-              <label class="label">Pulse Frequency</label>
+              <label class="label">Default Pulse Frequency</label>
                   <div class="control">
                     <input class="input" type="text" name="scanner-${scanner_count}-@pulseFreq_hz" placeholder="Pulse frequency in Hz">
                   </div>
            </div>
            <div class="field">
-              <label class="label">Scan Angle</label>
+              <label class="label">Default Scan Angle</label>
                   <div class="control">
                     <input class="input" type="text" name="scanner-${scanner_count}-@scanAngle_deg" placeholder="Scan angle in deg">
                   </div>
            </div>
            <div class="field">
-              <label class="label">Scan Frequency</label>
+              <label class="label">Default Scan Frequency</label>
                   <div class="control">
                     <input class="input" type="text" name="scanner-${scanner_count}-@scanFreq_hz" placeholder="Scan frequency in Hz">
                   </div>
            </div>
            <div class="field">
-              <label class="label">Head Rotate Per Seconds</label>
+              <label class="label">Default Head Rotate Per Seconds</label>
                   <div class="control">
                     <input class="input" type="text" name="scanner-${scanner_count}-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
                   </div>
@@ -270,7 +285,7 @@ window.addEventListener('load', (event) => {
                   </div>
            </div>
             <div class="field">
-              <label class="label">Trajectory Time Interval</label>
+              <label class="label">Default Trajectory Time Interval</label>
                   <div class="control">
                     <input class="input" type="text" name="scanner-${scanner_count}-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
                   </div>
@@ -289,6 +304,14 @@ window.addEventListener('load', (event) => {
                       <div class="control">
                         <input class="input" type="text" name="scanner-${scanner_count}-@beamDivergence_rad" placeholder="beam divergence in radian" value="" required>
                       </div>
+                    </div>
+
+
+                    <div class="field">
+                              <label class="label">Maximum Head Rotate</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-${scanner_count}-@headRotatePerSecMax_deg" placeholder="maximum head rotate per second in degree" value="">
+                              </div>
                     </div>
 
                     <div class="field">
@@ -367,6 +390,13 @@ window.addEventListener('load', (event) => {
                               <label class="label">Wavelength</label>
                               <div class="control">
                                 <input class="input" type="text" name="scanner-${scanner_count}-@wavelength_nm" placeholder="Wavelength in nm" value="">
+                              </div>
+                    </div>
+
+                    <div class="field">
+                              <label class="label">Beam Sample Quality</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-${scanner_count}-@beamSampleQuality" placeholder="Beam Sample Quality" value="">
                               </div>
                     </div>
 

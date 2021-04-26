@@ -14,7 +14,7 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Survey has been saved successfully. Running Helios ...</p>
-      <button class="delete" aria-label="close" onclick="toggleModal('modal')"></button>
+      <button class="delete" aria-label="close" onclick="killHelios('modal')"></button>
     </header>
     <section class="modal-card-body">
       <ul id="logs">
@@ -22,8 +22,8 @@
       </ul>
     </section>
     <footer class="modal-card-foot">
-      <button class="button">Download Output</button>
-        <button class="button" onclick="toggleModal('modal')">Cancel</button>
+      <button class="button" id="download_helios_output" onclick="downloadHeliosOutput()" disabled>Download Output</button>
+      <button class="button" onclick="killHelios('modal')">Cancel</button>
     </footer>
   </div>
 </div>
@@ -85,6 +85,23 @@
                     <input class="input" type="text" name="@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
                   </div>
            </div>
+
+           <div class="field">
+              <label class="label">Minimum Vertical Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@verticalAngleMin_deg" placeholder="Minimum Vertical Angle in deg">
+                  </div>
+           </div>
+
+
+           <div class="field">
+              <label class="label">Maximum Vertical Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@verticalAngleMax_deg" placeholder="Maximum Vertical Angle in deg">
+                  </div>
+           </div>
+
+
            <div class="field">
               <label class="label">Head Rotate Start</label>
                   <div class="control">
@@ -447,6 +464,21 @@
                                         <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
                                       </div>
                                </div>
+
+                                <div class="field">
+                                  <label class="label">Minimum Vertical Angle</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@verticalAngleMin_deg" placeholder="Minimum Vertical Angle in deg">
+                                      </div>
+                               </div>
+
+                               <div class="field">
+                                  <label class="label">Maximum Vertical Angle</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@verticalAngleMax_deg" placeholder="Maximum Vertical Angle in deg">
+                                      </div>
+                               </div>
+
                                <div class="field">
                                   <label class="label">Head Rotate Start</label>
                                       <div class="control">
@@ -714,6 +746,21 @@ window.addEventListener('load', (event) => {
                     <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg" value="${selectedScanner['@headRotatePerSec_deg']? selectedScanner['@headRotatePerSec_deg']: '' }">
                   </div>
            </div>
+
+           <div class="field">
+              <label class="label">Minimum Vertical Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@verticalAngleMin_deg" placeholder="Minimum Vertical Angle" value="${selectedScanner['@verticalAngleMin_deg']? selectedScanner['@verticalAngleMin_deg']: '' }">
+                  </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Maximum Vertical Angle</label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@verticalAngleMax_deg" placeholder="Maximum Vertical Angle" value="${selectedScanner['@verticalAngleMax_deg']? selectedScanner['@verticalAngleMax_deg']: '' }">
+                  </div>
+           </div>
+
            <div class="field">
               <label class="label">Head Rotate Start</label>
                   <div class="control">
@@ -732,6 +779,7 @@ window.addEventListener('load', (event) => {
                     <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval" value="${selectedScanner['@trajectoryTimeInterval_s']? selectedScanner['@trajectoryTimeInterval_s']: '' }">
                   </div>
            </div>
+
            <div class="field">
               <label class="label">Active</label>
                <div class="control">
@@ -768,16 +816,56 @@ function toggleModal(id) {
   document.getElementById(id).classList.toggle('is-active')
 }
 
-let source = new EventSource("/log");
-	  source.onmessage = function(event) {
-            let log_container = document.getElementById('logs')
-            let li = document.createElement('li')
-            li.innerText = event.data
-            log_container.appendChild(li)
-            li.scrollIntoView()
-      }
+function killHelios() {
+  document.getElementById('modal').classList.toggle('is-active');
+  const XHR = new XMLHttpRequest();
+   XHR.addEventListener( "load", function(event) {
+       console.log('Helios killed')
+   });
+
+   XHR.addEventListener( "error", function(event) {
+       console.log(event.target)
+   });
+
+       // Set up our request
+    XHR.open( "GET", "/kill-helios" );
+
+    XHR.send();
+
+}
+
+function enableHeliosDownload(enableOrDisable) {
+    document.getElementById("download_helios_output").disabled=enableOrDisable
+}
+
+function downloadHeliosOutput() {
+  survey_name = document.getElementsByName("survey-setting-@name")[0].value
+  if(!survey_name.length < 1) {
+    window.open(`/download_helios_output/${survey_name}`,'_blank')
+  }
+}
+
 
 window.addEventListener( "load", function () {
+  function getInitialLogs() {
+     const logsXHR = new XMLHttpRequest();
+     logsXHR.addEventListener( "load", function(event) {
+       let log_container = document.getElementById('logs')
+       let div = document.createElement('div')
+       div.innerHTML = event.target.responseText
+       log_container.appendChild(div)
+       div.scrollIntoView()
+     });
+
+     logsXHR.addEventListener( "error", function(event) {
+       console.log(event.target)
+     });
+
+      // Set up our request
+     logsXHR.open( "GET", "/initial-logs" );
+     logsXHR.send();
+  }
+
   function sendData() {
     const XHR = new XMLHttpRequest();
 
@@ -786,9 +874,20 @@ window.addEventListener( "load", function () {
 
     // Define what happens on successful data submission
     XHR.addEventListener( "load", function(event) {
-      //alert( event.target.responseText );
+      document.getElementById('logs').innerHTML = ''
       document.getElementById('modal').classList.toggle('is-active')
-    } );
+      let source = new EventSource("/log");
+	  source.onmessage = function(event) {
+            let log_container = document.getElementById('logs')
+            let li = document.createElement('li')
+            li.innerText = event.data
+            if(li.innerText.includes("Total simulation time")) {
+                enableHeliosDownload(false)
+            }
+            log_container.appendChild(li)
+            li.scrollIntoView()
+      }
+    });
 
     // Define what happens in case of error
     XHR.addEventListener( "error", function( event ) {
@@ -799,6 +898,7 @@ window.addEventListener( "load", function () {
     XHR.open( "POST", "/survey" );
 
     // The data sent is what the user provided in the form
+    enableHeliosDownload(true)
     XHR.send( FD );
   }
 
@@ -808,10 +908,11 @@ window.addEventListener( "load", function () {
   // ...and take over its submit event.
   form.addEventListener( "submit", function ( event ) {
     event.preventDefault();
-
     sendData();
   });
 });
+
+
 
 // file upload
 function _(el) {
@@ -995,6 +1096,12 @@ function handleScannerChange(event) {
     })
     document.querySelectorAll('input[name$="setting-@headRotatePerSec_deg"]').forEach((item) => {
         item.value = selectedScanner['@headRotatePerSec_deg']? selectedScanner['@headRotatePerSec_deg']: null
+    })
+    document.querySelectorAll('input[name$="setting-@verticalAngleMin_deg"]').forEach((item) => {
+        item.value = selectedScanner['@verticalAngleMin_deg']? selectedScanner['@verticalAngleMin_deg']: null
+    })
+    document.querySelectorAll('input[name$="setting-@verticalAngleMax_deg"]').forEach((item) => {
+        item.value = selectedScanner['@verticalAngleMax_deg']? selectedScanner['@verticalAngleMax_deg']: null
     })
     document.querySelectorAll('input[name$="setting-@headRotateStart_deg"]').forEach((item) => {
         item.value = selectedScanner['@headRotateStart_deg']? selectedScanner['@headRotateStart_deg']: null
