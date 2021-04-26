@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <document>
-	<scanner id="leica_als50" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.05" beamDivergence_rad="0.00033" headRotatePerSecMax_deg="" deflectAngle_deg="45" name="Leica ALS50" optics="oscillating" pulseFreqs_Hz="83000" pulseLength_ns="10" rangeMin_m="200" scanAngleMax_deg="37.5" scanFreqMin_Hz="25" scanFreqMax_Hz="70" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="leica_als50-ii" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.05" beamDivergence_rad="0.00022" headRotatePerSecMax_deg="" deflectAngle_deg="45" name="Leica ALS50-II" optics="oscillating" pulseFreqs_Hz="20000,60000,150000" pulseLength_ns="10" rangeMin_m="200" scanAngleMax_deg="37.5" scanFreqMin_Hz="0" scanFreqMax_Hz="90" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="optech_2033" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.01" beamDivergence_rad="0.000424" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Optech ALTM 2033" optics="oscillating" pulseFreqs_Hz="33000" pulseLength_ns="8" rangeMin_m="1" scanAngleMax_deg="20" scanFreqMin_Hz="0" scanFreqMax_Hz="30" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
+	<scanner id="leica_als50" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.05" beamDivergence_rad="0.00033" headRotatePerSecMax_deg="" deflectAngle_deg="45" name="Leica ALS50" optics="oscillating" pulseFreqs_Hz="83000" pulseLength_ns="10" rangeMin_m="200" scanAngleMax_deg="37.5" scanFreqMin_Hz="25" scanFreqMax_Hz="70" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="leica_als50-ii" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.05" beamDivergence_rad="0.00022" headRotatePerSecMax_deg="" deflectAngle_deg="45" name="Leica ALS50-II" optics="oscillating" pulseFreqs_Hz="20000,60000,150000" pulseLength_ns="10" rangeMin_m="200" scanAngleMax_deg="37.5" scanFreqMin_Hz="0" scanFreqMax_Hz="90" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="optech_2033" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.01" beamDivergence_rad="0.000424" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Optech ALTM 2033" optics="oscillating" pulseFreqs_Hz="33000" pulseLength_ns="8" rangeMin_m="1" scanAngleMax_deg="20" scanFreqMin_Hz="0" scanFreqMax_Hz="30" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="">
 		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
 		<beamOrigin x="0" y="0.085" z="0.06">
 			<rot axis="y" angle_deg="0"></rot>
 			<rot axis="x" angle_deg="0"></rot>
 		</beamOrigin>
 	</scanner>
-	<scanner id="optech_3100" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.015" beamDivergence_rad="0.000424" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Optech ALTM 3100" optics="oscillating" pulseFreqs_Hz="33000,50000,70000,100000" pulseLength_ns="8" rangeMin_m="80" scanAngleMax_deg="25" scanFreqMin_Hz="0" scanFreqMax_Hz="70" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="optech_galaxy" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.03" beamDivergence_rad="0.000354" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Optech Galaxy" optics="oscillating" pulseFreqs_Hz="35000,550000" pulseLength_ns="8" rangeMin_m="150" scanAngleMax_deg="30" scanFreqMin_Hz="0" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="riegl_lms-q560" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.02" beamDivergence_rad="0.0005" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL LMS-Q560" optics="rotating" pulseFreqs_Hz="50000,100000,180000,200000,240000" pulseLength_ns="4" rangeMin_m="30" scanAngleMax_deg="30" scanFreqMin_Hz="10" scanFreqMax_Hz="160" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="riegl_lms-q780" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.02" beamDivergence_rad="0.00025" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL LMS-Q780" optics="rotating" pulseFreqs_Hz="100000,200000,300000,400000" pulseLength_ns="4" rangeMin_m="50" scanAngleMax_deg="30" scanFreqMin_Hz="10" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="riegl_vq_780i" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.02" beamDivergence_rad="0.00025" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ 780i" optics="rotating" pulseFreqs_Hz="150000,250000,350000,500000,700000,1000000" pulseLength_ns="4" rangeMin_m="100" scanAngleMax_deg="30" scanFreqMin_Hz="20" scanFreqMax_Hz="300" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="riegl_vux-1uav" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.01" beamDivergence_rad="0.0005" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VUX-1UAV" optics="rotating" pulseFreqs_Hz="50000,100000,200000,300000,380000,550000" pulseLength_ns="4" rangeMin_m="3" scanAngleMax_deg="165" scanFreqMin_Hz="10" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
+	<scanner id="optech_3100" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.015" beamDivergence_rad="0.000424" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Optech ALTM 3100" optics="oscillating" pulseFreqs_Hz="33000,50000,70000,100000" pulseLength_ns="8" rangeMin_m="80" scanAngleMax_deg="25" scanFreqMin_Hz="0" scanFreqMax_Hz="70" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="optech_galaxy" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.03" beamDivergence_rad="0.000354" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Optech Galaxy" optics="oscillating" pulseFreqs_Hz="35000,550000" pulseLength_ns="8" rangeMin_m="150" scanAngleMax_deg="30" scanFreqMin_Hz="0" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="riegl_lms-q560" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.02" beamDivergence_rad="0.0005" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL LMS-Q560" optics="rotating" pulseFreqs_Hz="50000,100000,180000,200000,240000" pulseLength_ns="4" rangeMin_m="30" scanAngleMax_deg="30" scanFreqMin_Hz="10" scanFreqMax_Hz="160" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="riegl_lms-q780" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.02" beamDivergence_rad="0.00025" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL LMS-Q780" optics="rotating" pulseFreqs_Hz="100000,200000,300000,400000" pulseLength_ns="4" rangeMin_m="50" scanAngleMax_deg="30" scanFreqMin_Hz="10" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="riegl_vq_780i" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.02" beamDivergence_rad="0.00025" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ 780i" optics="rotating" pulseFreqs_Hz="150000,250000,350000,500000,700000,1000000" pulseLength_ns="4" rangeMin_m="100" scanAngleMax_deg="30" scanFreqMin_Hz="20" scanFreqMax_Hz="300" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="riegl_vux-1uav" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.01" beamDivergence_rad="0.0005" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VUX-1UAV" optics="rotating" pulseFreqs_Hz="50000,100000,200000,300000,380000,550000" pulseLength_ns="4" rangeMin_m="3" scanAngleMax_deg="165" scanFreqMin_Hz="10" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="">
 		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
 		<beamOrigin x="0" y="0.085" z="0.06">
 			<rot axis="x" angle_deg="90"></rot>
 			<rot axis="z" angle_deg="90"></rot>
 		</beamOrigin>
 	</scanner>
-	<scanner id="riegl_vq-880g" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.025" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ-880-G" optics="conic" pulseFreqs_Hz="150000,300000,600000,900000" pulseLength_ns="2" rangeMin_m="10" scanAngleMax_deg="20" scanFreqMin_Hz="28" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
+	<scanner id="riegl_vq-880g" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.025" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ-880-G" optics="conic" pulseFreqs_Hz="150000,300000,600000,900000" pulseLength_ns="2" rangeMin_m="10" scanAngleMax_deg="20" scanFreqMin_Hz="28" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="">
 		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
 		<beamOrigin x="0" y="0.085" z="0.06">
 			<rot axis="x" angle_deg="0"></rot>
 			<rot axis="z" angle_deg="0"></rot>
 		</beamOrigin>
 	</scanner>
-	<scanner id="riegl_vz400" pulseFreq_hz="100000" scanAngle_deg="100" scanFreq_hz="120" headRotatePerSec_deg="10.0" headRotateStart_deg="-45" headRotateStop_deg="45" trajectoryTimeInterval_s="1.0" accuracy_m="0.005" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="60" deflectAngle_deg="" name="RIEGL VZ-400" optics="rotating" pulseFreqs_Hz="100000,300000" pulseLength_ns="5" rangeMin_m="1.5" scanAngleMax_deg="50" scanFreqMin_Hz="3" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="50" wavelength_nm="" beamSampleQuality="3">
+	<scanner id="riegl_vz400" pulseFreq_hz="100000" scanAngle_deg="100" scanFreq_hz="120" headRotatePerSec_deg="10.0" headRotateStart_deg="-45" headRotateStop_deg="45" trajectoryTimeInterval_s="1.0" accuracy_m="0.005" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="60" deflectAngle_deg="" name="RIEGL VZ-400" optics="rotating" pulseFreqs_Hz="100000,300000" pulseLength_ns="5" rangeMin_m="1.5" scanAngleMax_deg="50" scanFreqMin_Hz="3" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="50" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="3">
 		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
 		<beamOrigin x="0" y="0" z="0.2">
 			<rot axis="y" angle_deg="0"></rot>
@@ -36,61 +36,28 @@
 			<rot axis="x" angle_deg="0"></rot>
 		</beamOrigin>
 	</scanner>
-	<scanner id="riegl_vz1000" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.008" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VZ-1000" optics="rotating" pulseFreqs_Hz="70000,100000,150000,300000" pulseLength_ns="4" rangeMin_m="2.5" scanAngleMax_deg="50" scanFreqMin_Hz="3" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="riegl_vq-450" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.008" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ-450" optics="rotating" pulseFreqs_Hz="150000,200000,300000,380000,550000,550000" pulseLength_ns="4" rangeMin_m="1.5" scanAngleMax_deg="360" scanFreqMin_Hz="10" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
+	<scanner id="riegl_vz1000" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.008" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VZ-1000" optics="rotating" pulseFreqs_Hz="70000,100000,150000,300000" pulseLength_ns="4" rangeMin_m="2.5" scanAngleMax_deg="50" scanFreqMin_Hz="3" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="riegl_vq-450" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0.008" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ-450" optics="rotating" pulseFreqs_Hz="150000,200000,300000,380000,550000,550000" pulseLength_ns="4" rangeMin_m="1.5" scanAngleMax_deg="360" scanFreqMin_Hz="10" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="">
 		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
 		<beamOrigin x="0" y="0.14" z="0.126">
 			<rot axis="x" angle_deg="90"></rot>
 			<rot axis="z" angle_deg="90"></rot>
 		</beamOrigin>
 	</scanner>
-	<scanner id="tractorscanner" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0" beamDivergence_rad="0.00035" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Tractor Scanner" optics="oscillating" pulseFreqs_Hz="1000,50000,100000,200000" pulseLength_ns="4" rangeMin_m="0" scanAngleMax_deg="30" scanFreqMin_Hz="100" scanFreqMax_Hz="50" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality=""></scanner>
-	<scanner id="test1" pulseFreq_hz="1" scanAngle_deg="2" scanFreq_hz="3" headRotatePerSec_deg="4" headRotateStart_deg="3" headRotateStop_deg="1" trajectoryTimeInterval_s="2" accuracy_m="30" beamDivergence_rad="3" headRotatePerSecMax_deg="" deflectAngle_deg="2" name="testScanner" optics="2" pulseFreqs_Hz="32" pulseLength_ns="21" rangeMin_m="1" scanAngleMax_deg="1" scanFreqMin_Hz="34" scanFreqMax_Hz="22" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
+	<scanner id="tractorscanner" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="0" beamDivergence_rad="0.00035" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Tractor Scanner" optics="oscillating" pulseFreqs_Hz="1000,50000,100000,200000" pulseLength_ns="4" rangeMin_m="0" scanAngleMax_deg="30" scanFreqMin_Hz="100" scanFreqMax_Hz="50" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality=""></scanner>
+	<scanner id="livox_mid-70" pulseFreq_hz="100000" scanAngle_deg="23" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="0.05" accuracy_m="0.02" beamDivergence_rad="0.004887" headRotatePerSecMax_deg="" deflectAngle_deg="" name="Livox Mid-70" optics="risley" pulseFreqs_Hz="100000" pulseLength_ns="4" rangeMin_m="2" scanAngleMax_deg="35" scanFreqMin_Hz="" scanFreqMax_Hz="" scanAngleEffectiveMax_deg="35" wavelength_nm="905" rotorFreq1_Hz="7294" rotorFreq2_Hz="-4664" maxNOR="1" beamSampleQuality="">
+		<headRotateAxis x="1" y="0" z="0"></headRotateAxis>
+		<beamOrigin x="0" y="0" z="0">
+			<rot axis="x" angle_deg="90"></rot>
+			<rot axis="z" angle_deg="90"></rot>
+		</beamOrigin>
+	</scanner>
+	<scanner id="scannerTest" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="2" beamDivergence_rad="3" headRotatePerSecMax_deg="" deflectAngle_deg="2" name="scanneropt" optics="2" pulseFreqs_Hz="" pulseLength_ns="" rangeMin_m="" scanAngleMax_deg="" scanFreqMin_Hz="" scanFreqMax_Hz="" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="">
 		<headRotateAxis x="" y="" z=""></headRotateAxis>
 		<beamOrigin x="" y="" z="">
 			<rot axis="x" angle_deg=""></rot>
 			<rot axis="y" angle_deg=""></rot>
 			<rot axis="z" angle_deg=""></rot>
-		</beamOrigin>
-	</scanner>
-	<scanner id="scannerTest" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="2" beamDivergence_rad="3" headRotatePerSecMax_deg="" deflectAngle_deg="2" name="scanneropt" optics="2" pulseFreqs_Hz="" pulseLength_ns="" rangeMin_m="" scanAngleMax_deg="" scanFreqMin_Hz="" scanFreqMax_Hz="" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
-		<headRotateAxis x="" y="" z=""></headRotateAxis>
-		<beamOrigin x="" y="" z="">
-			<rot axis="x" angle_deg=""></rot>
-			<rot axis="y" angle_deg=""></rot>
-			<rot axis="z" angle_deg=""></rot>
-		</beamOrigin>
-	</scanner>
-	<scanner id="bestScanner" pulseFreq_hz="12" scanAngle_deg="33" scanFreq_hz="44" headRotatePerSec_deg="2" headRotateStart_deg="2" headRotateStop_deg="2" trajectoryTimeInterval_s="3" accuracy_m="33" beamDivergence_rad="32" headRotatePerSecMax_deg="" deflectAngle_deg="3" name="bestScan" optics="1" pulseFreqs_Hz="2" pulseLength_ns="3" rangeMin_m="4" scanAngleMax_deg="" scanFreqMin_Hz="" scanFreqMax_Hz="" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
-		<headRotateAxis x="" y="" z=""></headRotateAxis>
-		<beamOrigin x="" y="" z="">
-			<rot axis="x" angle_deg=""></rot>
-			<rot axis="y" angle_deg=""></rot>
-			<rot axis="z" angle_deg=""></rot>
-		</beamOrigin>
-	</scanner>
-	<scanner id="best" pulseFreq_hz="12" scanAngle_deg="23" scanFreq_hz="2" headRotatePerSec_deg="3" headRotateStart_deg="4" headRotateStop_deg="" trajectoryTimeInterval_s="" accuracy_m="" beamDivergence_rad="" headRotatePerSecMax_deg="" deflectAngle_deg="" name="best2" optics="" pulseFreqs_Hz="" pulseLength_ns="" rangeMin_m="" scanAngleMax_deg="" scanFreqMin_Hz="" scanFreqMax_Hz="" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
-		<headRotateAxis x="" y="" z=""></headRotateAxis>
-		<beamOrigin x="" y="" z="">
-			<rot axis="x" angle_deg=""></rot>
-			<rot axis="y" angle_deg=""></rot>
-			<rot axis="z" angle_deg=""></rot>
-		</beamOrigin>
-	</scanner>
-	<scanner id="regel_test" pulseFreq_hz="100000" scanAngle_deg="100" scanFreq_hz="120" headRotatePerSec_deg="10.0" headRotateStart_deg="100" headRotateStop_deg="225" trajectoryTimeInterval_s="1.0" accuracy_m="" beamDivergence_rad="" headRotatePerSecMax_deg="" deflectAngle_deg="" name="regel_test1" optics="" pulseFreqs_Hz="" pulseLength_ns="" rangeMin_m="" scanAngleMax_deg="" scanFreqMin_Hz="" scanFreqMax_Hz="" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
-		<headRotateAxis x="" y="" z=""></headRotateAxis>
-		<beamOrigin x="" y="" z="">
-			<rot axis="x" angle_deg=""></rot>
-			<rot axis="y" angle_deg=""></rot>
-			<rot axis="z" angle_deg=""></rot>
-		</beamOrigin>
-	</scanner>
-	<scanner id="regel" pulseFreq_hz="100000" scanAngle_deg="100" scanFreq_hz="120" headRotatePerSec_deg="60" headRotateStart_deg="100" headRotateStop_deg="225" trajectoryTimeInterval_s="1.0" accuracy_m="0.005" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="regel" optics="rotating" pulseFreqs_Hz="100000,300000" pulseLength_ns="5" rangeMin_m="1.5" scanAngleMax_deg="50" scanFreqMin_Hz="3" scanFreqMax_Hz="120" scanAngleEffectiveMax_deg="" wavelength_nm="" beamSampleQuality="">
-		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
-		<beamOrigin x="0" y="0" z="0.2">
-			<rot axis="x" angle_deg="0"></rot>
-			<rot axis="y" angle_deg="0"></rot>
-			<rot axis="z" angle_deg="0"></rot>
 		</beamOrigin>
 	</scanner>
 </document>

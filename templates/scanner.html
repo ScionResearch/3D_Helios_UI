@@ -171,6 +171,27 @@
                             </div>
 
                             <div class="field">
+                              <label class="label">First Rotor Frequency</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@rotorFreq1_Hz" placeholder="First Rotor Frequency" value="{{ scanner['@rotorFreq1_Hz'] }}">
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Second Rotor Frequency</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@rotorFreq2_Hz" placeholder="Second Rotor Frequency" value="{{ scanner['@rotorFreq2_Hz'] }}">
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Maximum NOR</label>
+                              <div class="control">
+                                <input class="input" type="text" name="scanner-{{loop.index}}-@maxNOR" placeholder="Maximum NOR" value="{{ scanner['@maxNOR'] }}">
+                              </div>
+                            </div>
+
+                            <div class="field">
                               <label class="label">Beam Sample Quality</label>
                               <div class="control">
                                 <input class="input" type="text" name="scanner-{{loop.index}}-@beamSampleQuality" placeholder="Beam Sample Quality" value="{{ scanner['@beamSampleQuality'] }}">
@@ -391,6 +412,28 @@ window.addEventListener('load', (event) => {
                               <div class="control">
                                 <input class="input" type="text" name="scanner-${scanner_count}-@wavelength_nm" placeholder="Wavelength in nm" value="">
                               </div>
+                    </div>
+
+
+                    <div class="field">
+                      <label class="label">First Rotor Frequency</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@rotorFreq1_Hz" placeholder="First Rotor Frequency" value="">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Second Rotor Frequency</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@rotorFreq2_Hz" placeholder="Second Rotor Frequency" value="">
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Maximum NOR</label>
+                      <div class="control">
+                        <input class="input" type="text" name="scanner-${scanner_count}-@maxNOR" placeholder="Maximum NOR" value="">
+                      </div>
                     </div>
 
                     <div class="field">
