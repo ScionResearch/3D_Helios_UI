@@ -3,15 +3,6 @@ This project looks at developing a UI-based tool for using the Helios LiDAR simu
 
 # Usage
 
-### Filling the Scanner and Platform Information
-Refer to Helios++ repository for a full definition of each of the parameters needed. 
-
-The scanner settings information is available at https://github.com/3dgeo-heidelberg/helios/wiki/Scanners#scanner-settings
-
-The platform settings information is available at https://github.com/3dgeo-heidelberg/helios/wiki/Platforms
-
-### Filling the Survey
-Additional information on the individual parameters of the survey is available at: https://github.com/3dgeo-heidelberg/helios/wiki/Survey
 
 ### Scene Upload
 Using the blender2helios addon in blender, perform the following steps:
