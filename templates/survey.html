@@ -60,78 +60,18 @@
                 <input class="input" name="@id" type="text" placeholder="scanner id" required>
               </div>
             </div>
-
-            <div class="field">
-              <label class="label">Default Pulse Frequency</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@pulseFreq_hz" placeholder="Pulse frequency in Hz">
-                  </div>
-           </div>
-           <div class="field">
-              <label class="label">Default Scan Angle</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@scanAngle_deg" placeholder="Scan angle in deg">
-                  </div>
-           </div>
-           <div class="field">
-              <label class="label">Default Scan Frequency</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@scanFreq_hz" placeholder="Scan frequency in Hz">
-                  </div>
-           </div>
-           <div class="field">
-              <label class="label">Default Head Rotate Per Seconds</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
-                  </div>
-           </div>
-
-           <div class="field">
-              <label class="label">Minimum Vertical Angle</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@verticalAngleMin_deg" placeholder="Minimum Vertical Angle in deg">
-                  </div>
-           </div>
-
-
-           <div class="field">
-              <label class="label">Maximum Vertical Angle</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@verticalAngleMax_deg" placeholder="Maximum Vertical Angle in deg">
-                  </div>
-           </div>
-
-
-           <div class="field">
-              <label class="label">Head Rotate Start</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@headRotateStart_deg" placeholder="Head Rotate Start in deg">
-                  </div>
-           </div>
-           <div class="field">
-              <label class="label">Head Rotate Stop</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@headRotateStop_deg" placeholder="Head Rotate Stop in deg">
-                  </div>
-           </div>
-            <div class="field">
-              <label class="label">Default Trajectory Time Interval</label>
-                  <div class="control">
-                    <input class="input" type="text" name="@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
-                  </div>
-           </div>
-
+            <h3 class="subtitle">Scanner Definitions</h3>
             <div class="field">
               <label class="label">Accuracy</label>
               <div class="control">
-                <input class="input" type="text" name="@accuracy_m" placeholder="accuracy_m">
+                <input class="input" type="text" name="@accuracy_m" placeholder="Sensor accuracy [meters]">
               </div>
             </div>
 
             <div class="field">
-              <label class="label">Beam Divergence</label>
+              <label class="label">Beam Divergence<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="The 1/e^2 beam divergence full-angle [rad] (default: 0.0003). If a technical sheet gives the beam divergence at the 1/e power points or at 50% peak intensity (full width half maximum/FWHM), it has to be converted"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
               <div class="control">
-                <input class="input" type="text" name="@beamDivergence_rad" placeholder="beam divergence in radian">
+                <input class="input" type="text" name="@beamDivergence_rad" placeholder="The 1/e^2 beam divergence full-angle [rad] (default: 0.0003)">
               </div>
             </div>
 
@@ -143,23 +83,25 @@
             </div>
 
             <div class="field">
-              <label class="label">Name</label>
+              <label class="label">Scanner Name</label>
               <div class="control">
                 <input class="input" type="text" name="@name" placeholder="scanner name" required>
               </div>
             </div>
 
             <div class="field">
-              <label class="label">Optics</label>
+              <label class="label">Scanner Optics<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Laser beam deflector. The supported deflectors are: (a) rotating mirror (rotating) with the optional parameter scanAngleEffectiveMax_deg (b) fiber array (line) with the optional parameter numFibers
+                                    (c) oscillating mirror (oscillating) with the optional parameter scanProduct. The maximum scan product determines the maximum scanner velocity. It is the product of the maximum scan rate and maximum scan angle, which are inversely proportional to each other (Ussyshkin et al. 2008).
+                                    (d) conic mirror (conic) (e) risley prims (risley) with the parameters rotorFreq1_Hz and rotorFreq2_Hz, i.e., the rotational speeds of the two prisms. note that the parameter scanFreq_Hz is not used for this beam deflector!"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
               <div class="control">
-                <input class="input" type="text" name="@optics" placeholder="optics">
+                <input class="input" type="text" name="@optics" placeholder=" Laser beam deflector. Possible values:'rotating', 'line', 'oscillating', 'conic', 'risley'" required>
               </div>
             </div>
 
             <div class="field">
               <label class="label">Pulse Frequency</label>
               <div class="control">
-                <input class="input" type="text" name="@pulseFreqs_Hz" placeholder="pulse frequency in Hz">
+                <input class="input" type="text" name="@pulseFreqs_Hz" placeholder="List of supported pulse frequency or frequencies [Hz]">
               </div>
             </div>
 
@@ -167,35 +109,35 @@
             <div class="field">
               <label class="label">Pulse Length</label>
               <div class="control">
-                <input class="input" type="text" name="@pulseLength_ns" placeholder="pulse length in ns">
+                <input class="input" type="text" name="@pulseLength_ns" placeholder="Laser pulse length/duration [ns] (default: 4.0)">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Minimum Range</label>
               <div class="control">
-                <input class="input" type="text" name="@rangeMin_m" placeholder="minimum range in meters">
+                <input class="input" type="text" name="@rangeMin_m" placeholder="Minimum range [meters]">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Maximum Scanner Angle</label>
               <div class="control">
-                <input class="input" type="text" name="@scanAngleMax_deg" placeholder="maximum scanner angle in degrees">
+                <input class="input" type="text" name="@scanAngleMax_deg" placeholder="Maximum possible scan angle [deg]">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Minimum Scanner Frequency</label>
               <div class="control">
-                <input class="input" type="text" name="@scanFreqMin_Hz" placeholder="Minimum Scanner frequency in Hz">
+                <input class="input" type="text" name="@scanFreqMin_Hz" placeholder="Minimum values to define the possible scan frequency range [Hz]">
               </div>
             </div>
 
             <div class="field">
               <label class="label">Maximum Scanner Frequency</label>
               <div class="control">
-                <input class="input" type="text" name="@scanFreqMax_Hz" placeholder="Maximum Scanner Frequency in Hz">
+                <input class="input" type="text" name="@scanFreqMax_Hz" placeholder="Maximum values to define the possible scan frequency range [Hz]">
               </div>
             </div>
 
@@ -209,7 +151,7 @@
             <div class="field">
                 <label class="label">Wavelength</label>
                 <div class="control">
-                    <input class="input" type="text" name="@wavelength_nm" placeholder="Wavelength in nm">
+                    <input class="input" type="text" name="@wavelength_nm" placeholder="Wavelength [nm] (default: 1064)">
                 </div>
             </div>
 
@@ -228,33 +170,159 @@
             </div>
 
             <div class="field">
-              <label class="label">Maximum NOR</label>
+              <label class="label">Maximum NOR<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Maximum number of returns per pulse, e.g., if maxNOR equals 1, only the first return is recorded for each pulse. If maxNOR is 0 (default), the number of returns per pulse is not limited."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
               <div class="control">
-                <input class="input" type="text" name="@maxNOR" placeholder="Maximum NOR">
+                <input class="input" type="text" name="@maxNOR" placeholder="Maximum number of returns per pulse">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Average Power<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="The average power emitted by the laser. Integrating the whole footprint will give this power [W] (default: 4.0)."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+              <div class="control">
+                <input class="input" type="text" name="@averagePower_w" placeholder="Average power emitted by the laser. Integrating the whole footprint will give this power [W] (default: 4.0)">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Number of Fibers</label>
+              <div class="control">
+                <input class="input" type="text" name="@numFibers" placeholder="Number of Fibers">
+              </div>
+            </div>
+
+            <div class="field">
+                      <label class="label">Beam Quality Factor<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" How well the beam is focussed. The beam waist radius is calculated and is assumed at the minimum range as defined above. Do not confuse with the Beam Sample Quality, which defines the number of subrays used (default: 1.0)."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                      <div class="control">
+                        <input class="input" type="text" name="@beamQualityFactor" placeholder="How well the beam is focussed">
+                      </div>
+                    </div>
+
+            <div class="field">
+              <label class="label">Optical Efficiency<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Efficiency of the scanner in the LiDAR Equation (Höfle & Pfeifer 2007) (default: 0.99)."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+              <div class="control">
+                <input class="input" type="text" name="@opticalEfficiency" placeholder="Efficiency of the scanner (default:0.99)">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Atmospheric Visibility<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Used to calculate atmospheric attenuation, i.e. formula by Carlsson et al. (2001). The calculation depends on the wavelength (default: 23.0 km)."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+              <div class="control">
+                <input class="input" type="text" name="@atmosphericVisibility_km" placeholder="Used to calculate atmospheric attenuation [km] (default: 23.0 km)">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Receiver Diameter</label>
+              <div class="control">
+                <input class="input" type="text" name="@receiverDiameter_m" placeholder=" Unused [meters] (default: 0.15 m)">
               </div>
             </div>
 
             <div class="field">
               <label class="label"> Head Rotate Axis</label>
               <div class="control">
-                 X-Axis: <input type="text" name="headRotateAxis-@x" placeholder="Head Rotate X-axis">
-                 Y-Axis: <input type="text" name="headRotateAxis-@y" placeholder="Head Rotate Y-axis">
-                 Z-Axis: <input type="text" name="headRotateAxis-@z" placeholder="Head Rotate Z-axis">
+                 X-Axis: <input type="text" name="headRotateAxis-@x" placeholder="Axis around which the scanner head is rotated (X-axis)">
+                 Y-Axis: <input type="text" name="headRotateAxis-@y" placeholder="Axis around which the scanner head is rotated (Y-axis)">
+                 Z-Axis: <input type="text" name="headRotateAxis-@z" placeholder="Axis around which the scanner head is rotated (Z-axis)">
               </div>
             </div>
             <div class="field">
-              <label class="label"> Beam Origin Axis</label>
+              <label class="label"> Beam Origin Axis<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Origin of the laser beam. The position (x,y,z coordinates) and the attitude (rotations about X,Y,Z) can be provided. The offset and rotations are defined in the same manner as for the scannerMount tag in the Platforms XML. By default, the beam origin is assumed to be in the center of the scanner, and the axes of the beam to be aligned with the axes of the scanner. The rotation defined in <beamOrigin> is applied before the one of the <scannerMount> in the Platforms XML. We suggest to use the beamOrigin rotation to point the scanner downwards and have it scan left-to-right (for airborne systems), as this is the default use case. If no rotation is provided, the scanner looks to the front of the platform and scans up-down:"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                 <div class="control mb-3">
-                  X-Axis: <input type="text" name="beamOrigin-@x" placeholder="Beam Origin X-axis">
-                  Y-Axis: <input type="text" name="beamOrigin-@y" placeholder="Beam Origin Y-axis">
-                  Z-Axis: <input type="text" name="beamOrigin-@z" placeholder="Beam Origin Z-axis">
+                  X-Axis: <input type="text" name="beamOrigin-@x" placeholder="Origin of the laser beam. Position X coordinate">
+                  Y-Axis: <input type="text" name="beamOrigin-@y" placeholder="Origin of the laser beam. Position Y coordinate">
+                  Z-Axis: <input type="text" name="beamOrigin-@z" placeholder="Origin of the laser beam. Position Z coordinate">
                 </div>
                 <div class="control">
-                    Rotation x-axis: <input type="text" name="beamOrigin-rot-@axis-x-@angle_deg" placeholder="Beam Origin X-axis">
-                    Rotation y-axis: <input type="text" name="beamOrigin-rot-@axis-y-@angle_deg" placeholder="Beam Origin Y-axis">
-                    Rotation z-axis: <input type="text" name="beamOrigin-rot-@axis-z-@angle_deg" placeholder="Beam Origin Z-axis">
+                    Rotation x-axis: <input type="text" name="beamOrigin-rot-@axis-x-@angle_deg" placeholder="Origin of the laser beam. Altitude X rotation">
+                    Rotation y-axis: <input type="text" name="beamOrigin-rot-@axis-y-@angle_deg" placeholder="Origin of the laser beam. Altitude Y rotation">
+                    Rotation z-axis: <input type="text" name="beamOrigin-rot-@axis-z-@angle_deg" placeholder="Origin of the laser beam. Altitude Z rotation">
                 </div>
             </div>
+
+            <h3 class="subtitle">Scanner Settings</h3>
+            <div class="field">
+              <label class="label">Pulse Repetition Frequency (PRF)<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Number of laser pulses per second [Hz] (default: 0.0)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@pulseFreq_hz" placeholder="Number of laser pulses per second [Hz] (default: 0.0)">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Default Scan Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="(Vertical) half scan angle in degrees. scanAngle_deg = 30 corresponds to +- 30° (60° swath)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@scanAngle_deg" placeholder="(Vertical) half scan angle in degrees [deg]">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Default Scan Frequency</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@scanFreq_hz" placeholder=" Number of scan lines per second [Hz] (default: 0.0)">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Default Head Rotate Per Seconds</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotatePerSec_deg" placeholder="Head Rotate Per Seconds in deg">
+                  </div>
+           </div>
+
+
+           <div class="field">
+              <label class="label">Head Rotate Start <span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Angles to start and stop scanner head rotation to define the horizontal FOV. 0° is pointing to the primary (i.e. X-) axis of the scene coordinate system. If using a projected coordinate system like UTM, the primary axis is pointing north. Angles are assumed mathematically positive, i.e. going counter-clockwise, which is contrary to an azimuth value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotateStart_deg" placeholder="Angles to start scanner head rotation to define the horizontal FOV [deg]">
+                  </div>
+           </div>
+           <div class="field">
+              <label class="label">Head Rotate Stop <span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Angles to start and stop scanner head rotation to define the horizontal FOV. 0° is pointing to the primary (i.e. X-) axis of the scene coordinate system. If using a projected coordinate system like UTM, the primary axis is pointing north. Angles are assumed mathematically positive, i.e. going counter-clockwise, which is contrary to an azimuth value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotateStop_deg" placeholder="Angles to stop scanner head rotation to define the horizontal FOV [deg]">
+                  </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Head Rotate Per Segment<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Speed of scanner head rotation in degrees per second. Can be positive for counterclockwise rotation or negative for clockwise rotation. Make sure that headRotateStart_deg is larger than headRotateStop_deg if setting a negative value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@headRotatePerSeg_deg" placeholder="Speed of scanner head rotation in degrees per second [deg]">
+                  </div>
+           </div>
+
+            <div class="field">
+              <label class="label">Default Trajectory Time Interval<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Time interval in seconds for the trajectory output file. If this is set to 0, no trajectory is written. For a measurement frequency of 100 Hz, enter 0.01 (default: 0.0)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@trajectoryTimeInterval_s" placeholder="Time interval in seconds for the trajectory output file (default: 0.0)">
+                  </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Minimum Vertical Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Independent minimum vertical scan angle. Can be positive or negative. scanAngle_deg=30 would correspond to verticalAngleMin_deg=-30 and verticalAngleMax_deg = 30. We suggest to use the +- scan angle range for ALS surveys, and setting the minimum and maximum vertical angles for TLS surveys."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@verticalAngleMin_deg" placeholder="Independent minimum vertical scan angle [deg] ">
+                  </div>
+           </div>
+
+
+           <div class="field">
+              <label class="label">Maximum Vertical Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Independent maximum vertical scan angle. Can be positive or negative. scanAngle_deg=30 would correspond to verticalAngleMin_deg=-30 and verticalAngleMax_deg = 30. We suggest to use the +- scan angle range for ALS surveys, and setting the minimum and maximum vertical angles for TLS surveys."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="@verticalAngleMax_deg" placeholder="Independent maximum vertical scan angle [deg]">
+                  </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Scanner is Active<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip='Boolean, "true" or "false". This parameter is relevant e.g. for offline (i.e. scanner is turned off) flight lines in airborne surveys. (default: "true").'> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="@active" value="true">
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="@active" value="false">
+                    False
+                  </label>
+               </div>
+           </div>
+
                 <input class="button is-primary" id="add-scanner" type="submit" value="Add" />
             </form>
         </div>
@@ -278,7 +346,7 @@
                 <input class="input" name="@id" type="text" placeholder="platform id" value="" required>
               </div>
             </div>
-
+            <h3 class="subtitle">Platform Definitions</h3>
             <div class="field">
               <label class="label">Name</label>
               <div class="control">
@@ -287,7 +355,7 @@
             </div>
 
             <div class="field">
-              <label class="label">Type</label>
+              <label class="label">Platform Type<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip='Possible values: "static", "multicopter", "linearpath", "groundvehicle";any other entries will use the default static platform'> <i class="fas fa-info-circle has-text-info"></i> </span></label>
               <div class="control">
                 <input class="input" type="text" name="@type" placeholder="platform type" value="" required>
               </div>
@@ -389,6 +457,76 @@
                         Rotation z-axis: <input type="text" name="scannerMount-rot-@axis-z-@angle_deg" placeholder="Rotation Z-axis" value="0">
                 </div>
             </div>
+              <h3 class="subtitle">Platform Settings</h3>
+              <div class="field">
+              <label class="label">Move per Second</label>
+              <div class="control">
+                <input class="input" type="text" name="@movePerSec_m" placeholder="Move per Second Meters" value="" >
+              </div>
+            </div>
+
+           <div class="field">
+              <label class="label">On Ground</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="@onGround" value="true">
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="@onGround" value="false">
+                    False
+                  </label>
+               </div>
+           </div>
+           <div class="field">
+              <label class="label">Stop and Turn</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="@stopAndTurn" value="true" >
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="@stopAndTurn" value="false" >
+                    False
+                  </label>
+               </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Smooth Turn</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="@smoothTurn" value="true" >
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="@smoothTurn" value="false" >
+                    False
+                  </label>
+               </div>
+           </div>
+
+            <div class="field">
+              <label class="label">Enable Slowdown</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="@slowdownEnabled" value="true">
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="@slowdownEnabled" value="false" >
+                    False
+                  </label>
+               </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Yaw at Departure</label>
+                  <div class="control">
+                    <input class="input" type="text" name="@yawAtDeparture_deg" placeholder="Yaw at Departure in degree" value="">
+                  </div>
+           </div>
+
               <input class="button is-primary" id="add-platform" type="submit" value="Add" />
             </form>
         </div>
@@ -453,6 +591,55 @@
                                         <input class="input" type="text" name="waypoint-platform-{{loop.index}}-setting-@movePerSec_m" placeholder="Move Per Second in meter">
                                       </div>
                                </div>
+                                <div class="field">
+                                  <label class="label">Stop and Turn</label>
+                                   <div class="control">
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@stopAndTurn" value="true" checked>
+                                        True
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@stopAndTurn" value="false" >
+                                        False
+                                      </label>
+                                   </div>
+                               </div>
+
+                               <div class="field">
+                                  <label class="label">Smooth Turn</label>
+                                   <div class="control">
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@smoothTurn" value="true" >
+                                        True
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@smoothTurn" value="false"checked >
+                                        False
+                                      </label>
+                                   </div>
+                               </div>
+
+                                <div class="field">
+                                  <label class="label">Enable Slowdown</label>
+                                   <div class="control">
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@slowdownEnabled" value="true" checked>
+                                        True
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="waypoint-{{loop.index}}-setting-@slowdownEnabled" value="false" >
+                                        False
+                                      </label>
+                                   </div>
+                               </div>
+
+                               <div class="field">
+                                  <label class="label">Yaw at Departure</label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-platform-{{loop.index}}-setting-@yawAtDeparture_deg" placeholder="Yaw at Departure in degree">
+                                      </div>
+                               </div>
+
                     
                                 <h3 class="subtitle">Scanner Setting</h3>
                                 <div class="field">
@@ -462,21 +649,21 @@
                                       </div>
                                </div>
                                <div class="field">
-                                  <label class="label">Pulse Frequency</label>
+                                  <label class="label">Pulse Repetition Frequency (PRF) <span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Number of laser pulses per second [Hz] (default: 0.0)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@pulseFreq_hz" placeholder="Pulse frequency in Hz">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@pulseFreq_hz" placeholder="Number of laser pulses per second [Hz] (default: 0.0)">
                                       </div>
                                </div>
                                <div class="field">
-                                  <label class="label">Scan Angle</label>
+                                  <label class="label">Scan Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="(Vertical) half scan angle in degrees. scanAngle_deg = 30 corresponds to +- 30° (60° swath)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@scanAngle_deg" placeholder="Scan angle in deg">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@scanAngle_deg" placeholder="(Vertical) half scan angle in degrees [deg]">
                                       </div>
                                </div>
                                <div class="field">
                                   <label class="label">Scan Frequency</label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@scanFreq_hz" placeholder="Scan frequency in Hz">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@scanFreq_hz" placeholder="Number of scan lines per second [Hz] (default: 0.0)">
                                       </div>
                                </div>
                                <div class="field">
@@ -487,39 +674,48 @@
                                </div>
 
                                 <div class="field">
-                                  <label class="label">Minimum Vertical Angle</label>
+                                  <label class="label">Minimum Vertical Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Independent minimum vertical scan angle. Can be positive or negative. scanAngle_deg=30 would correspond to verticalAngleMin_deg=-30 and verticalAngleMax_deg = 30. We suggest to use the +- scan angle range for ALS surveys, and setting the minimum and maximum vertical angle for TLS surveys."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@verticalAngleMin_deg" placeholder="Minimum Vertical Angle in deg">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@verticalAngleMin_deg" placeholder="Independent minimum vertical scan angle [deg]">
                                       </div>
                                </div>
 
                                <div class="field">
-                                  <label class="label">Maximum Vertical Angle</label>
+                                  <label class="label">Maximum Vertical Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Independent maximum vertical scan angle. Can be positive or negative. scanAngle_deg=30 would correspond to verticalAngleMin_deg=-30 and verticalAngleMax_deg = 30. We suggest to use the +- scan angle range for ALS surveys, and setting the minimum and maximum vertical angles for TLS surveys."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@verticalAngleMax_deg" placeholder="Maximum Vertical Angle in deg">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@verticalAngleMax_deg" placeholder="Independent maximum vertical scan angle [deg]">
                                       </div>
                                </div>
 
                                <div class="field">
-                                  <label class="label">Head Rotate Start</label>
+                                  <label class="label">Head Rotate Start<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Angles to start and stop scanner head rotation to define the horizontal FOV. 0° is pointing to the primary (i.e. X-) axis of the scene coordinate system. If using a projected coordinate system like UTM, the primary axis is pointing north. Angles are assumed mathematically positive, i.e. going counter-clockwise, which is contrary to an azimuth value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotateStart_deg" placeholder="Head Rotate Start in deg">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotateStart_deg" placeholder="Angles to start scanner head rotation to define the horizontal FOV [deg]">
                                       </div>
                                </div>
                                <div class="field">
-                                  <label class="label">Head Rotate Stop</label>
+                                  <label class="label">Head Rotate Stop<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Angles to start and stop scanner head rotation to define the horizontal FOV. 0° is pointing to the primary (i.e. X-) axis of the scene coordinate system. If using a projected coordinate system like UTM, the primary axis is pointing north. Angles are assumed mathematically positive, i.e. going counter-clockwise, which is contrary to an azimuth value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotateStop_deg" placeholder="Head Rotate Stop in deg">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@headRotateStop_deg" placeholder="Angles to stop scanner head rotation to define the horizontal FOV [deg]">
+                                      </div>
+                               </div>
+
+                               <div class="field">
+                                  <label class="label">Head Rotate Per Segment<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Speed of scanner head rotation in degrees per second. Can be positive for counterclockwise rotation or negative for clockwise rotation. Make sure that headRotateStart_deg is larger than headRotateStop_deg if setting a negative value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                                      <div class="control">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-@headRotatePerSeg_deg" placeholder="Speed of scanner head rotation in degrees per second [deg]">
                                       </div>
                                </div>
                                 <div class="field">
-                                  <label class="label">Trajectory Time Interval</label>
+                                  <label class="label">Trajectory Time Interval<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Time interval in seconds for the trajectory output file. If this is set to 0, no trajectory is written. For a measurement frequency of 100 Hz, enter 0.01 (default: 0.0)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                       <div class="control">
-                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
+                                        <input class="input" type="text" name="waypoint-{{loop.index}}-setting-@trajectoryTimeInterval_s" placeholder="Time interval in seconds for the trajectory output file (default: 0.0)">
                                       </div>
                                </div>
+
+
                                <div class="field">
-                                  <label class="label">Active</label>
+                                  <label class="label">Scanner is Active<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip='Boolean, "true" or "false". This parameter is relevant e.g. for offline (i.e. scanner is turned off) flight lines in airborne surveys. (default: "true").'> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                                    <div class="control">
                                       <label class="radio">
                                         <input type="radio" name="waypoint-{{loop.index}}-setting-@active" value="true" checked>
@@ -563,7 +759,7 @@
            </div>
            <div class="mb-3">
            <div class="select float-left mr-4">
-              <select name="survey-setting-@platform" id="survey-platform">
+              <select name="survey-setting-@platform" id="survey-platform" onchange="handlePlatformChange(event)">
                 <option>Select Platform</option>
                   {% for platform in message['platforms']['document']['platform'] %}
                 <option value="{{platform['@id']}}">{{platform['@name']}}</option>
@@ -593,9 +789,9 @@
                   </div>
            </div>
            <div class="field">
-              <label class="label">Pulse Frequency</label>
+              <label class="label">Pulse Repetition Frequency (PRF)</label>
                   <div class="control">
-                    <input class="input" type="text" name="scanner-setting-@pulseFreq_hz" placeholder="Pulse frequency in Hz">
+                    <input class="input" type="text" name="scanner-setting-@pulseFreq_hz" placeholder="Number of laser pulses per second [Hz] (default: 0.0)">
                   </div>
            </div>
            <div class="field">
@@ -607,7 +803,7 @@
            <div class="field">
               <label class="label">Scan Frequency</label>
                   <div class="control">
-                    <input class="input" type="text" name="scanner-setting-@scanFreq_hz" placeholder="Scan frequency in Hz">
+                    <input class="input" type="text" name="scanner-setting-@scanFreq_hz" placeholder="Number of scan lines per second [Hz] (default: 0.0)">
                   </div>
            </div>
            <div class="field">
@@ -634,6 +830,7 @@
                     <input class="input" type="text" name="scanner-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval">
                   </div>
            </div>
+
            <div class="field">
               <label class="label">Active</label>
                <div class="control">
@@ -650,27 +847,27 @@
            <hr class="navbar-divider has-background-white"/>
             <h3 class="subtitle">Full Waveform Settings</h3>
             <div class="field">
-              <label class="label">Beam Sample Quality</label>
+              <label class="label">Beam Sample Quality<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Quality of spatial discretisation of the subrays (higher value = more subrays within the laser cone). (default: 3 ( = 19 subrays))."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="@beamSampleQuality" placeholder="Beam Sample Quality">
+                    <input class="input" type="text" name="@beamSampleQuality" placeholder="Quality of spatial discretization of the subrays ">
                   </div>
             </div>
             <div class="field">
-              <label class="label">Bin Size</label>
+              <label class="label">Bin Size<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Size of bins to discretise the entire temporal domain of the FWF signal [ns]. It determines the number of bins:numFullwaveBin = floor[min(maxHitTime_ns - minHitTime_ns, maxFullwaveRange_ns) / binSize_ns] (default: 0.25)."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="@binSize_ns" placeholder="Bin Size in ns">
+                    <input class="input" type="text" name="@binSize_ns" placeholder="Size of bins to discretize the entire temporal domain of the FWF signal [ns] (default: 0.25)">
                   </div>
             </div>
             <div class="field">
-              <label class="label">Maximum Full Wave Range</label>
+              <label class="label">Maximum Full Wave Range<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Maximum range of the full waveform [ns]. It is used to avoid negative influences on runtime in case of large ranges. Information after minHitTime_ns+maxFullwaveRange is discarded and a warning message is displayed. The maxFullwaveRange_ns is only applied if it is larger than 0 (default: 0)."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="@maxFullwaveRange_ns" placeholder="Maximum Full Wave Range in ns">
+                    <input class="input" type="text" name="@maxFullwaveRange_ns" placeholder="Maximum range of the full waveform [ns] (default: 0)">
                   </div>
             </div>
             <div class="field">
-              <label class="label">Window Size</label>
+              <label class="label">Window Size<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Number of neighboring samples to check (i.e. 1D window size) when finding local maxima for Gaussian decomposition (default: (Pulse Length in ns)/4, see Scanner definition"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="@winSize_ns" placeholder="Window Size in ns">
+                    <input class="input" type="text" name="@winSize_ns" placeholder="Number of neighbouring samples to check [ns]">
                   </div>
             </div>
             <hr class="navbar-divider has-background-white"/>
@@ -730,11 +927,62 @@ window.addEventListener('load', (event) => {
                </div>
            </div>
            <div class="field">
-              <label class="label">Move Per Second</label>
+                  <label class="label">Move per Second</label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-platform-${waypoint_count}-setting-@movePerSec_m" placeholder="Move Per Second in meter">
+                    <input class="input" type="text" name="waypoint-platform-${waypoint_count}-setting-@movePerSec_m" placeholder="Move per Second Meters" value="${selectedPlatform['@movePerSec_m']? selectedPlatform['@movePerSec_m']: '' }">
                   </div>
            </div>
+
+
+            <div class="field">
+              <label class="label">Stop and Turn</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@stopAndTurn" value="true" checked>
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@stopAndTurn" value="false">
+                    False
+                  </label>
+               </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Smooth Turn</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@smoothTurn" value="true">
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@smoothTurn" value="false"checked>
+                    False
+                  </label>
+               </div>
+           </div>
+
+            <div class="field">
+              <label class="label">Enable Slowdown</label>
+               <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@slowdownEnabled" value="true" checked>
+                    True
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="waypoint-platform-${waypoint_count}-setting-@slowdownEnabled" value="false">
+                    False
+                  </label>
+               </div>
+           </div>
+
+           <div class="field">
+              <label class="label">Yaw at Departure</label>
+                  <div class="control">
+                    <input class="input" type="text" value="${selectedPlatform['@yawAtDeparture_deg']? selectedPlatform['@yawAtDeparture_deg']: '' }" name="waypoint-platform-${waypoint_count}-setting-@yawAtDeparture_deg" placeholder="Yaw at Departure in degree">
+                  </div>
+           </div>
+
 
 			<h3 class="subtitle">Scanner Setting</h3>
             <div class="field">
@@ -744,21 +992,21 @@ window.addEventListener('load', (event) => {
                   </div>
            </div>
            <div class="field">
-              <label class="label">Pulse Frequency</label>
+              <label class="label">Pulse Repetition Frequency<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Number of laser pulses per second [Hz] (default: 0.0)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@pulseFreq_hz" placeholder="Pulse frequency in Hz" value="${selectedScanner['@pulseFreq_hz']? selectedScanner['@pulseFreq_hz']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@pulseFreq_hz" placeholder="Number of laser pulses per second [Hz] (default: 0.0)" value="${selectedScanner['@pulseFreq_hz']? selectedScanner['@pulseFreq_hz']: '' }">
                   </div>
            </div>
            <div class="field">
-              <label class="label">Scan Angle</label>
+              <label class="label">Scan Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="(Vertical) half scan angle in degrees. scanAngle_deg = 30 corresponds to +- 30° (60° swath)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@scanAngle_deg" placeholder="Scan angle in deg" value="${selectedScanner['@scanAngle_deg']? selectedScanner['@scanAngle_deg']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@scanAngle_deg" placeholder="(Vertical) half scan angle in degrees [deg]" value="${selectedScanner['@scanAngle_deg']? selectedScanner['@scanAngle_deg']: '' }">
                   </div>
            </div>
            <div class="field">
               <label class="label">Scan Frequency</label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@scanFreq_hz" placeholder="Scan frequency in Hz" value="${selectedScanner['@scanFreq_hz']? selectedScanner['@scanFreq_hz']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@scanFreq_hz" placeholder="Number of scan lines per second [Hz] (default: 0.0)" value="${selectedScanner['@scanFreq_hz']? selectedScanner['@scanFreq_hz']: '' }">
                   </div>
            </div>
            <div class="field">
@@ -769,40 +1017,48 @@ window.addEventListener('load', (event) => {
            </div>
 
            <div class="field">
-              <label class="label">Minimum Vertical Angle</label>
+              <label class="label">Minimum Vertical Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Independent minimum and maximum vertical scan angle. Can be positive or negative. scanAngle_deg=30 would correspond to verticalAngleMin_deg=-30 and verticalAngleMax_deg = 30. We suggest to use the +- scan angle range for ALS surveys, and setting the minimum and maximum vertical angles for TLS surveys."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@verticalAngleMin_deg" placeholder="Minimum Vertical Angle" value="${selectedScanner['@verticalAngleMin_deg']? selectedScanner['@verticalAngleMin_deg']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@verticalAngleMin_deg" placeholder="Independent minimum vertical scan angle [deg]" value="${selectedScanner['@verticalAngleMin_deg']? selectedScanner['@verticalAngleMin_deg']: '' }">
                   </div>
            </div>
 
            <div class="field">
-              <label class="label">Maximum Vertical Angle</label>
+              <label class="label">Maximum Vertical Angle<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip=" Independent minimum and maximum vertical scan angle. Can be positive or negative. scanAngle_deg=30 would correspond to verticalAngleMin_deg=-30 and verticalAngleMax_deg = 30. We suggest to use the +- scan angle range for ALS surveys, and setting the minimum and maximum vertical angles for TLS surveys."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@verticalAngleMax_deg" placeholder="Maximum Vertical Angle" value="${selectedScanner['@verticalAngleMax_deg']? selectedScanner['@verticalAngleMax_deg']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@verticalAngleMax_deg" placeholder="Independent maximum vertical scan angle [deg]" value="${selectedScanner['@verticalAngleMax_deg']? selectedScanner['@verticalAngleMax_deg']: '' }">
                   </div>
            </div>
 
            <div class="field">
-              <label class="label">Head Rotate Start</label>
+              <label class="label">Head Rotate Start<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Angles to start and stop scanner head rotation to define the horizontal FOV. 0° is pointing to the primary (i.e. X-) axis of the scene coordinate system. If using a projected coordinate system like UTM, the primary axis is pointing north. Angles are assumed mathematically positive, i.e. going counter-clockwise, which is contrary to an azimuth value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotateStart_deg" placeholder="Head Rotate Start in deg" value="${selectedScanner['@headRotateStart_deg']? selectedScanner['@headRotateStart_deg']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotateStart_deg" placeholder="Angles to start scanner head rotation to define the horizontal FOV [deg]" value="${selectedScanner['@headRotateStart_deg']? selectedScanner['@headRotateStart_deg']: '' }">
                   </div>
            </div>
            <div class="field">
-              <label class="label">Head Rotate Stop</label>
+              <label class="label">Head Rotate Stop<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Angles to start and stop scanner head rotation to define the horizontal FOV. 0° is pointing to the primary (i.e. X-) axis of the scene coordinate system. If using a projected coordinate system like UTM, the primary axis is pointing north. Angles are assumed mathematically positive, i.e. going counter-clockwise, which is contrary to an azimuth value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotateStop_deg" placeholder="Head Rotate Stop in deg" value="${selectedScanner['@headRotateStop_deg']? selectedScanner['@headRotateStop_deg']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@headRotateStop_deg" placeholder="Angles to stop scanner head rotation to define the horizontal FOV [deg]" value="${selectedScanner['@headRotateStop_deg']? selectedScanner['@headRotateStop_deg']: '' }">
                   </div>
            </div>
+
+           <div class="field">
+              <label class="label">Head Rotate Per Segment<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Speed of scanner head rotation in degrees per second. Can be positive for counterclockwise rotation or negative for clockwise rotation. Make sure that headRotateStart_deg is larger than headRotateStop_deg if setting a negative value."> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                  <div class="control">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-@headRotatePerSeg_deg" placeholder="Speed of scanner head rotation in degrees per second [deg]" value="${selectedScanner['@headRotatePerSeg_deg']? selectedScanner['@headRotatePerSeg_deg']: '' }">
+                  </div>
+           </div>
+
             <div class="field">
-              <label class="label">Trajectory Time Interval</label>
+              <label class="label">Trajectory Time Interval<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip="Time interval in seconds for the trajectory output file. If this is set to 0, no trajectory is written. For a measurement frequency of 100 Hz, enter 0.01 (default: 0.0)"> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                   <div class="control">
-                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@trajectoryTimeInterval_s" placeholder="Trajectory Time Interval" value="${selectedScanner['@trajectoryTimeInterval_s']? selectedScanner['@trajectoryTimeInterval_s']: '' }">
+                    <input class="input" type="text" name="waypoint-${waypoint_count}-setting-@trajectoryTimeInterval_s" placeholder="Time interval in seconds for the trajectory output file (default: 0.0)" value="${selectedScanner['@trajectoryTimeInterval_s']? selectedScanner['@trajectoryTimeInterval_s']: '' }">
                   </div>
            </div>
 
            <div class="field">
-              <label class="label">Active</label>
+              <label class="label">Scanner is Active<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip='Boolean, "true" or "false". This parameter is relevant e.g. for offline (i.e. scanner is turned off) flight lines in airborne surveys. (default: "true").'> <i class="fas fa-info-circle has-text-info"></i> </span></label>
                <div class="control">
                   <label class="radio">
                     <input type="radio" name="waypoint-${waypoint_count}-setting-@active" value="true" checked>
@@ -1076,18 +1332,22 @@ window.addEventListener( "load", function () {
     addPlatform();
   });
 
-  // Fetch scanners asynchronously
-  loadScanners()
+  // Fetch scanners and platforms asynchronously
+  loadEntities()
 
 })
 
 let scanners = []
+let platforms = []
 let selectedScanner = {}
+let selectedPlatform = {}
 
-function loadScanners() {
+function loadEntities() {
   const XHR = new XMLHttpRequest();
    XHR.addEventListener( "load", function(event) {
-       scanners = JSON.parse(event.target.responseText).scanners.document.scanner
+       docs = JSON.parse(event.target.responseText)
+       scanners = docs.scanners.document.scanner
+       platforms = docs.platforms.document.platform
    });
 
    XHR.addEventListener( "error", function(event) {
@@ -1095,14 +1355,14 @@ function loadScanners() {
    });
 
        // Set up our request
-    XHR.open( "GET", "/scanner-async" );
+    XHR.open( "GET", "/entities" );
 
     XHR.send();
 }
 
 function handleScannerChange(event) {
     const scannerID = event.target.value
-    selectedScanner = scanners.filter(item => item['@id'] === scannerID)[0]
+    selectedScanner = scanners.find(item => item['@id'] === scannerID)
     document.querySelectorAll('input[name$="setting-@id"]').forEach((item) => {
         item.value = selectedScanner['@id']? selectedScanner['@id']: null
     })
@@ -1130,11 +1390,27 @@ function handleScannerChange(event) {
     document.querySelectorAll('input[name$="setting-@headRotateStop_deg"]').forEach((item) => {
         item.value = selectedScanner['@headRotateStop_deg']? selectedScanner['@headRotateStop_deg']: null
     })
+    document.querySelectorAll('input[name$="setting-@headRotatePerSeg_deg"]').forEach((item) => {
+        item.value = selectedScanner['@headRotatePerSeg_deg']? selectedScanner['@headRotatePerSeg_deg']: null
+    })
     document.querySelectorAll('input[name$="setting-@trajectoryTimeInterval_s"]').forEach((item) => {
         item.value = selectedScanner['@trajectoryTimeInterval_s']? selectedScanner['@trajectoryTimeInterval_s']: null
     })
 }
 
+
+function handlePlatformChange(event) {
+    const platformID = event.target.value
+    selectedPlatform = platforms.find(item => item['@id'] === platformID)
+
+    document.querySelectorAll('input[name$="setting-@movePerSec_m"]').forEach((item) => {
+        item.value = selectedPlatform['@movePerSec_m']? selectedPlatform['@movePerSec_m']: null
+    })
+
+    document.querySelectorAll('input[name$="setting-@yawAtDeparture_deg"]').forEach((item) => {
+        item.value = selectedPlatform['@yawAtDeparture_deg']? selectedPlatform['@yawAtDeparture_deg']: null
+    })
+}
 
 
 </script>
