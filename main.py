@@ -134,8 +134,16 @@ def scanner_async():
         'scanners': dict(scanners),
         'id': scanner_id
     })
+    
 
-
+@app.route('/entities')
+def get_entites():
+    scanners = get_scanners()
+    platforms = get_platforms()
+    return jsonify({'scanners': dict(scanners), 'platforms': dict(platforms)})
+    
+    
+    
 @app.route('/scanner-download')
 def download_scanner():
     return send_file(f'{HELIOS_DATA_DIR}{os.sep}scanners2.xml', as_attachment=True)
