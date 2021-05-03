@@ -26,7 +26,6 @@
                             <input class="input" type="text" name="platform-{{loop.index}}-@id" placeholder="platform id" value="{{ platform['@id'] }}" required>
                           </div>
                         </div>
-                        <h3 class="subtitle">Platform Definitions</h3>
 
                         <div class="field">
                           <label class="label">Name</label>
@@ -36,7 +35,7 @@
                         </div>
 
                         <div class="field">
-                          <label class="label">Platform Type<span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip='Possible values: "static", "multicopter", "linearpath", "groundvehicle";any other entries will use the default static platform'> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                          <label class="label">Type</label>
                           <div class="control">
                             <input class="input" type="text" name="platform-{{loop.index}}-@type" placeholder="platform type" value="{{ platform['@type'] }}" required>
                           </div>
@@ -122,6 +121,7 @@
                           </div>
                         </div>
 
+
                         <div class="field">
                         <label class="label"> Scanner Mount Axis</label>
                         <div class="control">
@@ -138,78 +138,6 @@
 
                         </div>
                         </div>
-
-                        <h3 class="subtitle">Platform Settings</h3>
-                        <div class="field">
-                          <label class="label">Move per Second</label>
-                          <div class="control">
-                            <input class="input" type="text" name="platform-{{loop.index}}-@movePerSec_m" placeholder="Move per Second Meters" value="{{ platform['@movePerSec_m'] }}" >
-                          </div>
-                        </div>
-
-                        <div class="field">
-                          <label class="label">On Ground</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@onGround" value="true">
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@onGround" value="false" checked>
-                                False
-                              </label>
-                           </div>
-                       </div>
-                        <div class="field">
-                          <label class="label">Stop and Turn</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@stopAndTurn" value="true" checked>
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@stopAndTurn" value="false" >
-                                False
-                              </label>
-                           </div>
-                       </div>
-
-                       <div class="field">
-                          <label class="label">Smooth Turn</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@smoothTurn" value="true" >
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@smoothTurn" value="false"checked >
-                                False
-                              </label>
-                           </div>
-                       </div>
-
-                        <div class="field">
-                          <label class="label">Enable Slowdown</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@slowdownEnabled" value="true" checked>
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-{{loop.index}}-@slowdownEnabled" value="false" >
-                                False
-                              </label>
-                           </div>
-                       </div>
-
-                       <div class="field">
-                          <label class="label">Yaw at Departure</label>
-                              <div class="control">
-                                <input class="input" type="text" name="platform-{{loop.index}}-@yawAtDeparture_deg" placeholder="Yaw at Departure in degree" value="{{ platform['@yawAtDeparture_deg'] }}" >
-                              </div>
-                       </div>
-
-
 
 				</div>
 			</div>
@@ -255,7 +183,7 @@ window.addEventListener('load', (event) => {
                         <input class="input" name="platform-${platform_count}-@id" type="text" placeholder="platform id" value="" required>
                       </div>
                     </div>
-                    <h3 class="subtitle">Platform Definitions</h3>
+
                     <div class="field">
                       <label class="label">Name</label>
                       <div class="control">
@@ -264,7 +192,7 @@ window.addEventListener('load', (event) => {
                     </div>
 
                     <div class="field">
-                      <label class="label">Platform Type <span class="has-tooltip-arrow has-tooltip-multiline" data-tooltip='Possible values: "static", "multicopter", "linearpath", "groundvehicle";any other entries will use the default static platform'> <i class="fas fa-info-circle has-text-info"></i> </span></label>
+                      <label class="label">Type</label>
                       <div class="control">
                         <input class="input" type="text" name="platform-${platform_count}-@type" placeholder="platform type" value="" required>
                       </div>
@@ -350,8 +278,6 @@ window.addEventListener('load', (event) => {
                       </div>
                     </div>
 
-
-
                     <div class="field">
                       <label class="label"> Scanner Mount Axis</label>
                         <div class="control">
@@ -368,79 +294,6 @@ window.addEventListener('load', (event) => {
                                 Rotation z-axis: <input type="text" name="scanner-${platform_count}-scannerMount-rot-@axis-z-@angle_deg" placeholder="Rotation Z-axis" value="0">
                         </div>
                     </div>
-
-
-                    <h3 class="subtitle">Platform Settings</h3>
-                        <div class="field">
-                          <label class="label">Move per Second</label>
-                          <div class="control">
-                            <input class="input" type="text" name="platform-${platform_count}-@movePerSec_m" placeholder="Move per Second Meters" value="" >
-                          </div>
-                        </div>
-
-                        <div class="field">
-                          <label class="label">On Ground</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@onGround" value="true">
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@onGround" value="false">
-                                False
-                              </label>
-                           </div>
-                       </div>
-                        <div class="field">
-                          <label class="label">Stop and Turn</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@stopAndTurn" value="true" >
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@stopAndTurn" value="false" >
-                                False
-                              </label>
-                           </div>
-                       </div>
-
-                       <div class="field">
-                          <label class="label">Smooth Turn</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@smoothTurn" value="true" >
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@smoothTurn" value="false"checked >
-                                False
-                              </label>
-                           </div>
-                       </div>
-
-                        <div class="field">
-                          <label class="label">Enable Slowdown</label>
-                           <div class="control">
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@slowdownEnabled" value="true" checked>
-                                True
-                              </label>
-                              <label class="radio">
-                                <input type="radio" name="platform-${platform_count}-@slowdownEnabled" value="false" >
-                                False
-                              </label>
-                           </div>
-                       </div>
-
-                       <div class="field">
-                          <label class="label">Yaw at Departure</label>
-                              <div class="control">
-                                <input class="input" type="text" name="platform-${platform_count}-@yawAtDeparture_deg" placeholder="Yaw at Departure in degree" >
-                              </div>
-                       </div>
-
-
                	</div>
 			</div>
     `
