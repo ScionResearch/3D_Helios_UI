@@ -16,7 +16,11 @@ SCANNER_SETTINGS_FIELDS = ['scanner-setting-@id',
                            'scanner-setting-@headRotateStart_deg',
                            'scanner-setting-@headRotateStop_deg',
                            'scanner-setting-@trajectoryTimeInterval_s',
+                           'scanner-setting-@verticalAngleMin_deg',
+                           'scanner-setting-@verticalAngleMax_deg',
                            'scanner-setting-@active']
+PLATFORM_SETTINGS_FIELDS = ['platform-setting-@id',
+                            'platform-setting-@movePerSec_m']
 WAYPOINT_PLATFORM_SETTINGS_FIELDS = ['waypoint-platform-{}-setting-@x',
                                      'waypoint-platform-{}-setting-@y',
                                      'waypoint-platform-{}-setting-@z',
@@ -29,6 +33,8 @@ WAYPOINT_SCANNER_SETTINGS_FIELDS = ['waypoint-{}-setting-@pulseFreq_hz',
                                     'waypoint-{}-setting-@headRotateStart_deg',
                                     'waypoint-{}-setting-@headRotateStop_deg',
                                     'waypoint-{}-setting-@trajectoryTimeInterval_s',
+                                    'waypoint-{}-setting-@verticalAngleMin_deg',
+                                    'waypoint-{}-setting-@verticalAngleMax_deg',
                                     'waypoint-{}-setting-@active'
                                     ]
 FWF_SETTINGS_FIELDS = ['@beamSampleQuality',
@@ -84,11 +90,11 @@ def parse_form(form):
     for key in keys:
         splitted = key.split('-')
         if len(splitted) == 4:
-            idxs.append(splitted[1])
+            idxs.append(int(splitted[1]))
         elif len(splitted) == 5:
-            idxs.append(splitted[2])
+            idxs.append(int(splitted[2]))
 
-    for idx in list(set(idxs)):
+    for idx in sorted(list(set(idxs))):
         temp = OrderedDict()
         temp['platformSettings'] = OrderedDict()
         temp['scannerSettings'] = OrderedDict()
@@ -99,7 +105,7 @@ def parse_form(form):
         legs.append(temp)
 
     survey = OrderedDict()
-    #survey['scannerSettings'] = scanner_settings
+    # survey['scannerSettings'] = scanner_settings
     survey['survey'] = survey_settings
     survey['survey']['FWFSettings'] = fwf_settings
     survey['survey']['leg'] = legs
