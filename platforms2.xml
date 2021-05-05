@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <document>
-	<platform id="quadcopter" name="Quadrocopter UAV" type="multicopter" drag="0.01" engine_max_force="0.1" speedup_magnitude="2.0" slowdown_magnitude="" slowdown_distance="5.0" base_pitch_deg="-5.0" roll_speed_deg="28.65" pitch_speed_deg="85.94" yaw_speed_deg="85.94" roll_offset_deg="25.0" pitch_offset_deg="35.0">
+	<platform id="quadcopter" name="Quadrocopter UAV" type="multicopter" drag="0.01" engine_max_force="0.1" speedup_magnitude="2.0" slowdown_magnitude="" slowdown_distance="5.0" base_pitch_deg="-5.0" roll_speed_deg="28.65" pitch_speed_deg="85.94" yaw_speed_deg="85.94" roll_offset_deg="25.0" pitch_offset_deg="35.0" movePerSec_m="5" stopAndTurn="true">
 		<scannerMount x="0" y="0" z="0.2" rotations="">
 			<rot axis="x" angle_deg="180"></rot>
 			<rot axis="z" angle_deg="180"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="sr22" name="Cirrus SR-22" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="sr22" name="Cirrus SR-22" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="" y="" z="0.7" rotations="">
 			<rot axis="x" angle_deg="-90"></rot>
 			<rot axis="z" angle_deg="90"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="tractor" name="Tractor" type="groundvehicle" drag="0.005" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="tractor" name="Tractor" type="groundvehicle" drag="0.005" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="20" stopAndTurn="true">
 		<scannerMount x="0" y="1" z="4" rotations="local">
 			<rot axis="z" angle_deg="90"></rot>
 			<rot axis="y" angle_deg="-30"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="tractor_leftside" name="Tractor" type="groundvehicle" drag="0.01" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="tractor_leftside" name="Tractor Leftside" type="groundvehicle" drag="0.01" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="0" y="0.8" z="4" rotations="">
 			<rot axis="" angle_deg=""></rot>
 		</scannerMount>
 	</platform>
-	<platform id="vmx-450-car-left" name="RIEGL VMX-450 Car Left" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="vmx-450-car-left" name="RIEGL VMX-450 Car Left" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="-0.18" y="-2.2" z="2.2" rotations="">
 			<rot axis="x" angle_deg="40"></rot>
 			<rot axis="z" angle_deg="150"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="vmx-450-car-right" name="RIEGL VMX-450 Car Right" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="vmx-450-car-right" name="RIEGL VMX-450 Car Right" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="0.18" y="-2.2" z="2.2" rotations="">
 			<rot axis="x" angle_deg="40"></rot>
 			<rot axis="z" angle_deg="210"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="vmx-450-car-middle" name="RIEGL VMX-450 Car Middle" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="vmx-450-car-middle" name="RIEGL VMX-450 Car Middle" type="linearpath" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="0.0" y="-2.2" z="2.2" rotations="">
 			<rot axis="x" angle_deg="110"></rot>
 			<rot axis="z" angle_deg="0"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="tripod" name="TLS Tripod" type="static" drag="0" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="tripod" name="TLS Tripod" type="static" drag="0" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="0" y="0" z="1.5" rotations=""></scannerMount>
 	</platform>
-	<platform id="my_plat" name="My platform" type="multicopter" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="my_plat" name="My platform" type="multicopter" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="" y="" z="" rotations="">
 			<rot axis="x" angle_deg="0"></rot>
 			<rot axis="y" angle_deg="0"></rot>
 			<rot axis="z" angle_deg="0"></rot>
 		</scannerMount>
 	</platform>
-	<platform id="wicked-platform" name="wicked platform" type="rotor" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="">
+	<platform id="wicked-platform" name="wicked platform" type="rotor" drag="" engine_max_force="" speedup_magnitude="" slowdown_magnitude="" slowdown_distance="" base_pitch_deg="" roll_speed_deg="" pitch_speed_deg="" yaw_speed_deg="" roll_offset_deg="" pitch_offset_deg="" movePerSec_m="" stopAndTurn="true">
 		<scannerMount x="" y="" z="" rotations="">
 			<rot axis="x" angle_deg="0"></rot>
 			<rot axis="y" angle_deg="0"></rot>
