@@ -1,5 +1,5 @@
 # 3D_Helios_UI
-This project looks at developing a UI-based tool for using the Helios LiDAR simulation project for UAV task planning.
+This project looks at developing a UI-based tool for using the Helios++ (https://github.com/3dgeo-heidelberg/helios) LiDAR simulation project for UAV task planning.
 
 # Usage
 
