@@ -19,6 +19,7 @@ Open a web browser and run:
 localhost:5000
 ```
 # Usage
+You can select from the predefined scanner and platforms that comes with the Helios++_UI or you can define a new scanner or platform. You can also modify exisiting scanner and platform settings/definitions. The information below is for adding new scanner and platform.
 
 ### Filling the Scanner and Platform Information
 Refer to Helios++ repository for a full definition of each of the parameters needed. 
