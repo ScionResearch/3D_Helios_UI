@@ -1,6 +1,19 @@
 # 3D_Helios_UI
 This project looks at developing a UI-based tool for using the Helios++ (https://github.com/3dgeo-heidelberg/helios) LiDAR simulation project for UAV task planning.
 
+
+
+# Running 3D_Helios_UI Using Docker
+
+In the directory that contain the Dockerfile, run the following code
+ 
+```
+docker build -t 3dhelios .
+docker run --rm -it -p 5000:5000 3dhelios
+```
+
+Open a web browser and run: localhost:5000
+
 # Usage
 
 ### Filling the Scanner and Platform Information
@@ -40,13 +53,3 @@ src
 
 ```
 
-# Running 3D_Helios_UI Using Docker
-
-In the directory that contain the Dockerfile, run the following code
- 
-```
-docker build -t 3dhelios .
-docker run --rm -it -p 5000:5000 3dhelios
-```
-
-Open a web browser and run: localhost:5000
