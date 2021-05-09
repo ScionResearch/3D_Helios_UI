@@ -61,7 +61,7 @@ src
 # Output
 The Download button will become active when Helios have finish running. Download the output to have access to the results. The format and explanation of the output is available at https://github.com/3dgeo-heidelberg/helios/wiki/Output
 
-The output point clouds and (optionally) the full waveform and the trajectory files are stored in
+The downloaded output point clouds and (optionally) the full waveform and the trajectory files are stored in
 ```
 [survey_name]opt/gui-helios/helios-plusplus/output/Survey Playback/[name of survey as defined in survey.xml]/[time stamp of simulation start]/points/[number of scan position].
 
