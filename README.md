@@ -2,8 +2,8 @@
 This project looks at developing a UI-based tool for using the Helios++ (https://github.com/3dgeo-heidelberg/helios) LiDAR simulation project for UAV task planning.
 
 The Helios++_UI is delivered to you in a zipped folder, unzip the folder to your working directory. This folder contains Dockerfile to build the docker image for running 
-this project. The folder also contains some predefined scanners and platform settings and definitions **(please do not modify these files!!!)**. The predefined scanners and platforms are available on the front end for editing and working with. You can add new scanners and platforms from the front-end as well as modify exisiting scanner and platform settings. More information is available on the wiki.
-Finally, the whole GUI code is written across several files and folders in this directory.
+this project. The folder also contains some predefined scanners and platform settings and definitions **(please do not modify these files!!!)**. The predefined scanners and platforms are available on the front end for editing and working with. You can add new scanners and platforms from the front-end as well as modify existing scanner and platform settings. More information is available on the wiki.
+Finally, the whole GUI code is in several files and folders in this directory.
 
 # Running 3D_Helios_UI Using Docker
 
@@ -19,7 +19,7 @@ Open a web browser and run:
 localhost:5000
 ```
 # Usage
-You can select from the predefined scanner and platforms that comes with the Helios++_UI or you can define a new scanner or platform. You can also modify exisiting scanner and platform settings/definitions. The information below is for adding new scanner and platform.
+You can select from the predefined scanner and platforms that comes with the Helios++_UI or you can define a new scanner or platform. You can also modify existing scanner and platform settings/definitions. The information below is for adding new scanner and platform.
 
 ### Filling the Scanner and Platform Information
 Refer to Helios++ repository for a full definition of each of the parameters needed. 
