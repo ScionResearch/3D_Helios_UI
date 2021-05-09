@@ -2,7 +2,7 @@
 This project looks at developing a UI-based tool for using the Helios++ (https://github.com/3dgeo-heidelberg/helios) LiDAR simulation project for UAV task planning.
 
 The Helios++_UI is delivered to you in a zipped folder, unzip the folder to your working directory. This folder contains Dockerfile to build the docker image for running 
-this project. The folder also contains some predefined scanners and platform settings and definitions (please do not modified this files!!!). The predefined scanners and platforms are available on the front end for editing and working with. You can add a new scaanner and platforms from the front-end as well as modify exisiting scanner and platform settings. More information is available on the wiki.
+this project. The folder also contains some predefined scanners and platform settings and definitions **(please do not modify these files!!!)**. The predefined scanners and platforms are available on the front end for editing and working with. You can add a new scaanner and platforms from the front-end as well as modify exisiting scanner and platform settings. More information is available on the wiki.
 Finally, the whole GUI code is written across several files and folders in this directory.
 
 # Running 3D_Helios_UI Using Docker
