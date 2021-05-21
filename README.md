@@ -53,8 +53,8 @@ Zip data and upload to web-helios++
 src
 |
  |--data
-     |--screens
-     |--screenparts
+     |--scenes
+     |--sceneparts
 
 ```
 
