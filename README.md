@@ -9,6 +9,9 @@ Finally, the whole GUI code is in several files and folders in this directory.
 ![Optional Text](images/helios++_pipeline.PNG)
 
 
+![Optional Text](images/scene_generation.PNG)
+
+
 # Running 3D_Helios_UI Using Docker
 
 In the directory (base directory) that contain the Dockerfile, run the following code
