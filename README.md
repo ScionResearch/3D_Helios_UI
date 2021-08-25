@@ -5,6 +5,10 @@ The Helios++_UI is delivered to you in a zipped folder, unzip the folder to your
 this project. The folder also contains some predefined scanners and platform settings and definitions **(please do not modify these files!!!)**. The predefined scanners and platforms are available on the front end for editing and working with. You can add new scanners and platforms from the front-end as well as modify existing scanner and platform settings. More information is available on the wiki.
 Finally, the whole GUI code is in several files and folders in this directory.
 
+
+![Optional Text](images/helios++_pipeline.PNG)
+
+
 # Running 3D_Helios_UI Using Docker
 
 In the directory (base directory) that contain the Dockerfile, run the following code
