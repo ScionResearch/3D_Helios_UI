@@ -42,6 +42,9 @@ Additional information on the individual parameters of the survey is available a
 Using the blender2helios addon in blender, perform the following steps:
 
 Helios Base Directory:
+![Optional Text](images/blender2helios_preference.PNG)
+
+![Optional Text](images/blender2helios_path.PNG)
 
 Create a directory called new_blender2helios_scene
 
@@ -50,6 +53,11 @@ Create a directory called data inside new_blender2helios_scene
 Create two directories inside data called screens and screenparts
 
 In blender2helios: provide  new_blender2helios_scene as the helios base directory
+
+In blender Go to the Render tab and run blender2helios as shown
+
+![Optional Text](images/blender2helios_render.PNG)
+
 
 Zip data and upload to web-helios++
 
