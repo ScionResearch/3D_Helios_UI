@@ -54,7 +54,7 @@ Create two directories inside data called screens and screenparts
 
 In blender2helios: provide  new_blender2helios_scene as the helios base directory
 
-In blender Go to the Render tab and run blender2helios as shown
+In blender Go to the Render tab and run blender2helios Export as shown
 
 ![Optional Text](images/blender2helios_render.PNG)
 
