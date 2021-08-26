@@ -42,7 +42,7 @@ Additional information on the individual parameters of the survey is available a
 Using the blender2helios addon in blender, perform the following steps:
 
 Helios Base Directory:
-![Optional Text](images/blender2helios_preference.PNG)
+![Optional Text](images/blender2helios_preference2.PNG)
 
 ![Optional Text](images/blender2helios_path.PNG)
 
