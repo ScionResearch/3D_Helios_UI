@@ -44,6 +44,8 @@ Using the blender2helios addon in blender, perform the following steps:
 Helios Base Directory:
 ![Optional Text](images/blender2helios_preference2.PNG)
 
+![Optional Text](images/blender2helios_preference1.PNG)
+
 ![Optional Text](images/blender2helios_path.PNG)
 
 Create a directory called new_blender2helios_scene
