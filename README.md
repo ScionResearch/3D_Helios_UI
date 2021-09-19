@@ -39,7 +39,7 @@ The platform settings information is available at https://github.com/3dgeo-heide
 Additional information on the individual parameters of the survey is available at: https://github.com/3dgeo-heidelberg/helios/wiki/Survey
 
 ### Scene Upload
-Using the blender2helios addon in blender, perform the following steps:
+Using the blender2helios (available for download here: https://github.com/neumicha/Blender2Helios) addon in blender, perform the following steps:
 
 Helios Base Directory:
 ![Optional Text](images/blender2helios_preference2.PNG)
