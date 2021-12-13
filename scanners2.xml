@@ -21,6 +21,13 @@
 			<rot axis="z" angle_deg="90"></rot>
 		</beamOrigin>
 	</scanner>
+	<scanner id="scion_riegl_vux-1uav" accuracy_m="0.015" beamDivergence_rad="0.0005" headRotatePerSecMax_deg="" deflectAngle_deg="" name="SCION RIEGL VUX-1UAV" optics="rotating" pulseFreqs_Hz="100000" pulseLength_ns="6" rangeMin_m="3" scanAngleMax_deg="360" scanFreqMin_Hz="10" scanFreqMax_Hz="100" scanAngleEffectiveMax_deg="360" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="" averagePower_w="" numFibers="" beamQualityFactor="" opticalEfficiency="" atmosphericVisibility_km="" receiverDiameter_m="" pulseFreq_hz="100000" scanAngle_deg="90" scanFreq_hz="50" headRotatePerSec_deg="0" headRotateStart_deg="0" headRotateStop_deg="0" headRotatePerSeg_deg="" trajectoryTimeInterval_s="0.01" verticalAngleMin_deg="" verticalAngleMax_deg="" active="true">
+		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
+		<beamOrigin x="0" y="0" z="0">
+			<rot axis="x" angle_deg="90"></rot>
+			<rot axis="z" angle_deg="90"></rot>
+		</beamOrigin>
+	</scanner>
 	<scanner id="riegl_vq-880g" accuracy_m="0.025" beamDivergence_rad="0.0003" headRotatePerSecMax_deg="" deflectAngle_deg="" name="RIEGL VQ-880-G" optics="conic" pulseFreqs_Hz="150000,300000,600000,900000" pulseLength_ns="2" rangeMin_m="10" scanAngleMax_deg="20" scanFreqMin_Hz="28" scanFreqMax_Hz="200" scanAngleEffectiveMax_deg="" wavelength_nm="" rotorFreq1_Hz="" rotorFreq2_Hz="" maxNOR="" beamSampleQuality="" averagePower_w="" numFibers="" beamQualityFactor="" opticalEfficiency="" atmosphericVisibility_km="" receiverDiameter_m="" pulseFreq_hz="" scanAngle_deg="" scanFreq_hz="" headRotatePerSec_deg="" headRotateStart_deg="" headRotateStop_deg="" headRotatePerSeg_deg="" trajectoryTimeInterval_s="" verticalAngleMin_deg="" verticalAngleMax_deg="" active="true">
 		<headRotateAxis x="0" y="0" z="1"></headRotateAxis>
 		<beamOrigin x="0" y="0.085" z="0.06">
